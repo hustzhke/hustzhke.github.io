@@ -21,7 +21,7 @@ repository               : "academicpages/academicpages.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "profile.png.jpg"
   name             : "Zhou Ke/ 周科"
   pronouns         : # example: "she/her"  
   bio              : "Associate Professor, Department of Management Science, Business School, Hunan University"
