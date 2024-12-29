@@ -1,20 +1,32 @@
 ---
-title: "Teaching experience 1"
+title: "金融经济学"
 collection: teaching
 type: "Undergraduate course"
-permalink: /teaching/2014-spring-teaching-1
-venue: "University 1, Department"
-date: 2014-01-01
-location: "City, Country"
+permalink: /teaching/finance-economics
+venue: "湖南大学工商管理学院"
+date: 2024-01-01
+location: "中楼201"
 ---
 
-This is a description of a teaching experience. You can use markdown like any other post.
+这是一次本科课程的教学经历描述。你可以像使用其他帖子一样使用Markdown进行撰写。
 
-Heading 1
-======
+## 课程简介
 
-Heading 2
-======
+该课程旨在介绍金融经济学的核心概念，包括金融市场运作、投资决策理论以及风险管理方法。
 
-Heading 3
-======
+## 教学目标
+
+- 掌握金融经济学的基本理论和分析工具  
+- 理解金融市场的结构和功能  
+- 提高学生在实际金融情境中解决问题的能力  
+
+## 授课内容
+
+1. 金融市场与金融工具  
+2. 投资组合理论  
+3. 风险管理与对冲策略  
+4. 行为金融学概述  
+
+## 课堂地点
+
+**湖南大学工商管理学院 中楼201**
