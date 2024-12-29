@@ -11,9 +11,9 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* **August 2009 – August 2014**: The Chinese University of Hong Kong, Ph.D. in Financial Engineering  
+* **September 2006 – June 2009**: Shandong University, M.S. in Probability Theory and Mathematical Statistics  
+* **September 2002 – July 2006**: Huazhong University of Science and Technology, B.S. in Information and Computational Science 
 ## 教育经历
 * **2009-08 至 2014-08**: 香港中文大学, 金融工程, 博士  
 * **2006-09 至 2009-06**: 山东大学, 概率论与数理统计, 硕士  
