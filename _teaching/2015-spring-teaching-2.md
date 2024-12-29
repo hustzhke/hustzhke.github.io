@@ -1,20 +1,42 @@
 ---
-title: "Teaching experience 2"
+title: "金融经济学*（课程授课）"
 collection: teaching
-type: "Workshop"
-permalink: /teaching/2015-spring-teaching-1
-venue: "University 1, Department"
-date: 2015-01-01
-location: "City, Country"
+type: "Undergraduate course"
+permalink: /teaching/financial-economics
+venue: "湖南大学工商管理学院"
+date: 2024-01-01
+location: "中105"
+instructor: "周科"
+teaching_hours: 48
+schedule: 
+  - "20304 (1-16周) 中105"
+  - "50506 (1-8周) 中105"
+class_size: 59
+class_code: "财金2201-02"
+retake_students: "无"
 ---
 
-This is a description of a teaching experience. You can use markdown like any other post.
+## 课程简介  
 
-Heading 1
-======
+**金融经济学**是一门面向本科生的核心课程，旨在培养学生对金融市场运行机制、投资决策理论及风险管理方法的深入理解和应用能力。  
 
-Heading 2
-======
+## 教学目标  
 
-Heading 3
-======
+- 系统掌握金融经济学的核心理论和分析工具  
+- 深入理解金融市场的结构、功能及运行机制  
+- 提高学生在复杂金融环境中进行决策与风险管理的能力  
+
+## 授课安排  
+
+- **第一阶段 (20304, 1-16周)**：系统讲解金融经济学核心理论与实践案例  
+- **第二阶段 (50506, 1-8周)**：深入探讨投资组合与风险管理的实际应用  
+
+## 上课信息  
+
+- **授课教师**：周科  
+- **教学时长**：48学时  
+- **上课地点**：中105  
+- **上课人数**：59人（财金2201-02）  
+- **重修人数**：无  
+
+---
