@@ -1,19 +1,17 @@
 ---
-title: "金融经济学*（课程授课）"
-collection: teaching
-type: "Undergraduate course"
+title: "金融经济学"
+type: "本科必修课"
 permalink: /teaching/financial-economics
 venue: "湖南大学工商管理学院"
-date: 2024-01-01
-location: "中105"
+date: 2025-01-01
 instructor: "周科"
 teaching_hours: 48
 schedule: 
-  - "20304 (1-16周) 中105"
-  - "50506 (1-8周) 中105"
+  - "周二  三四节, 1-16周 中105"
+  - "周五 五六节, 1-8周 中105"
 class_size: 59
 class_code: "财金2201-02"
-retake_students: "无"
+
 ---
 
 ## 课程简介  
@@ -28,8 +26,8 @@ retake_students: "无"
 
 ## 授课安排  
 
-- **第一阶段 (20304, 1-16周)**：系统讲解金融经济学核心理论与实践案例  
-- **第二阶段 (50506, 1-8周)**：深入探讨投资组合与风险管理的实际应用  
+- **第一阶段 (周二  三四节, 1-16周)**：
+- **第二阶段 (周五 五六节, 1-8周)**：
 
 ## 上课信息  
 
