@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Academic Pages is a ready-to-fork for students and  coparater"
+title: "Academic Pages Of Zhou Ke"
 author_profile: true
 redirect_from: 
   - /about/
@@ -29,6 +29,11 @@ redirect_from:
 
 2. 国家自然科学基金委员会，应急管理项目，71850012，金融科技背景下非正规金融活动的风险防范与治理研究，2019-01-01 至 2021-12-31，200万元，结题，参与
 
+3. 国家自然科学基金委员会，青年科学基金项目，71801088，监管视角下的金融系统性风险度量与优化建模，2019-01-01 至 2021-12-31，19万元，结题，主持
+
+4. 国家自然科学基金委员会，青年科学基金项目，71801087，多维异质性视角下机构投资者公司治理效应与企业汇率风险管理研究，2019-01-01 至 2021-12-31，17万元，结题，参与
+
+5. 国家自然科学基金委员会，青年科学基金项目，71801086，共生环境下电商平台谈判策略选择对供应链协同的影响机理研究，2019-01-01 至 2021-12-31，18万元，结题，参与
 
 
 This is the front page of a website that is powered by the [Academic Pages template](https://github.com/academicpages/academicpages.github.io) and hosted on GitHub pages. 
