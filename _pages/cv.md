@@ -18,7 +18,7 @@ Work experience
   * Department of Management Science, Business School, Hunan University
 
 * Sep 2014 - Jan 2019: Lecturer
-  *Department of Management Science, Business School, Hunan University
+  * Department of Management Science, Business School, Hunan University
  
 *  Research Assistant, Business School, CUHK, 08/2018 – 09/2018
 *  Visiting scholar, Department of System Engineering and Engineering Management, CUHK, 07/2017 – 08/2017
