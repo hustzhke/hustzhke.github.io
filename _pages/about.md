@@ -38,7 +38,7 @@ redirect_from:
 
 ## 学生要求
 
-数学基础好、编程能力突出者优先考虑；非常欢迎具有交叉学科背景（物理、计算化学、计算生物、金融工程、计量经济学等）的学生。
+数学基础好、编程能力突出者优先考虑；非常欢迎具有交叉学科背景（物理、计算机、金融工程、计量经济学等）的学生。
 
 This is the front page of a website that is powered by the [Academic Pages template](https://github.com/academicpages/academicpages.github.io) and hosted on GitHub pages. 
 
