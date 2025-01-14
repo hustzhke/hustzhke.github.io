@@ -31,13 +31,16 @@ CS229：机器学习：系统讲解机器学习的理论和实践
 
 * **[ChatGPT](https://chat.openai.com/)** - OpenAI开发，回答问题、写作、编程
 
+* **[Google Gemini](https://gemini.google.com/)** - Google推出支持多模态输入,可以理解文本、图像、音频等。
+
 * **[Perplexity](https://www.perplexity.ai/)** - 智能搜索引擎。能够直接回答用户问题,并提供信息来源。
 
 * **[Kimi Chat](https://kimi.moonshot.cn/)** - 处理长文本、图像等多模态输入。提供免费额度,付费可获得更多功能。
 
 * **[豆包](https://www.doubao.com/)** - 字节跳动旗下的AI助手。写作、翻译、编程，阅读pdf等任务。
 
-* **[Google Gemini](https://gemini.google.com/)** - Google推出支持多模态输入,可以理解文本、图像、音频等。
+* **[元宝](https://yuanbao.tencent.com/chat/naQivTmsDa)** - 腾讯推出的AI助手，方便手机使用， 公众号文章阅读与总结尤其有效。
 
+* **[通义千问](https://tongyi.aliyun.com/)** - 阿里达摩院推出的大语言模型。具备强大的中文理解和生成能力,支持对话、写作、编程等多种任务。可通过网页版和API接口使用,通用阿里云账号。
 
 ## 其他链接
