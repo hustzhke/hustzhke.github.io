@@ -2,7 +2,7 @@
 title: "金融经济学"
 type: "本科必修课"
 permalink: /teaching/financial-economics
-venue: "湖南大学工商管理学院"
+venue: "财务管理（金融工程）2025年春"
 date: 2025-01-01
 instructor: "周科"
 teaching_hours: 48
