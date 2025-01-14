@@ -9,18 +9,18 @@ redirect_from:
 
 ## Locations of key files/directories
 
-* Basic config options: _config.yml
-* Top navigation bar config: _data/navigation.yml
-* Single pages: _pages/
-* Collections of pages are .md or .html files in:
+* Basic config options 基本配置选项: _config.yml
+* Top navigation bar config顶部导航栏配置: _data/navigation.yml
+* Single pages单个页面: _pages/
+* Collections of pages are .md or .html files in页面集合:
   * _publications/
   * _portfolio/
   * _posts/
   * _teaching/
   * _talks/
-* Footer: _includes/footer.html
-* Static files (like PDFs): /files/
-* Profile image (can set in _config.yml): images/profile.png
+* Footer页脚: _includes/footer.html
+* Static files静态文件 (like PDFs): /files/
+* Profile image 个人资料图片(can set in _config.yml): images/profile.png
 
 ## Tips and hints
 
