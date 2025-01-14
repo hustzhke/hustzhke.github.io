@@ -2,7 +2,7 @@
 title: "量化投资模拟实验"
 collection: teaching
 type: "本科必修课"
-permalink: /teaching/finance-economics
+permalink: /teaching/QF
 venue: "湖南大学工商管理学院"
 date: 2024-09-01
 location: "中楼201"
