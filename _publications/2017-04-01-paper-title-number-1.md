@@ -4,7 +4,7 @@ collection: publications
 category: manuscripts
 permalink: /publication/2017-04-dynamic-mean-var
 excerpt: 'This paper investigates dynamic mean-VaR portfolio selection in continuous time, developing a tractable formulation and deriving the optimal portfolio policy using a combined martingale and quantile optimization approach.'
-date: 2017-04
+date: 2017-04-01
 venue: 'Quantitative Finance'
 paperurl: 'https://doi.org/10.1080/14697688.2017.1298831'
 citation: 'Zhou, K., Gao, J., Li, D., & Cui, X. (2017). &quot;Dynamic mean-VaR portfolio selection in continuous time.&quot; <i>Quantitative Finance</i>, 17(10), 1-13.'

@@ -4,7 +4,7 @@ collection: publications
 category: manuscripts
 permalink: /publication/2024-07-dynamic-portfolio-var
 excerpt: 'This paper examines the dynamic mean-risk portfolio optimization problem using both variance and value at risk (VaR) as risk measures, providing a solution framework using martingale approach and quantile optimization techniques.'
-date: 2024-07
+date: 2024-07-01
 venue: 'Mathematics'
 paperurl: 'https://doi.org/10.3390/math12142268'
 citation: 'Wang, T., Pan, Q., Wu, W., & Zhou, K. (2024). &quot;Dynamic Mean-Variance Portfolio Optimization with Value-at-Risk Constraint in Continuous Time.&quot; <i>Mathematics</i>, 12(14), 2268.'

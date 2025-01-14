@@ -4,7 +4,7 @@ collection: publications
 category: manuscripts
 permalink: /publication/2014-dynamic-mean-lpm-cvar
 excerpt: 'This paper investigates dynamic mean-downside risk portfolio optimization using lower-partial moments (LPM) and conditional value-at-risk (CVaR), providing tractable formulations and analytical solutions.'
-date: 2014
+date: 2017-07-01
 venue: 'SIAM Journal on Control and Optimization'
 paperurl: 'https://doi.org/10.1137/140955264'
 citation: 'Gao, J., Zhou, K., Li, D., & Cao, X. (2014). &quot;Dynamic Mean-LPM and Mean-CVaR Portfolio Optimization in Continuous-Time.&quot; <i>SIAM Journal on Control and Optimization</i>.'

@@ -1,3 +1,4 @@
+---
 title: "Mean-variance hybrid portfolio optimization with quantile-based risk measure"
 collection: publications
 category: manuscripts
