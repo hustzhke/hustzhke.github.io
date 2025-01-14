@@ -4,7 +4,7 @@ collection: teaching
 type: "MBA课程"
 permalink: /teaching/AI for MBA
 venue: "湖南大学工商管理学院"
-date: 2025-01-01
+date: 2025-01-14
 instructor: "周科"
 location: "工管院302教室"
 ---
