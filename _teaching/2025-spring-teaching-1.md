@@ -2,7 +2,7 @@
 title: "AI基础与智能管理课程"
 collection: teaching
 type: "MBA课程"
-permalink: /teaching/financial-economics
+permalink: /teaching/AI for MBA
 venue: "湖南大学工商管理学院"
 date: 2025-01-01
 instructor: "周科"
