@@ -23,17 +23,21 @@ CS229：机器学习：系统讲解机器学习的理论和实践
 * **[吴恩达](https://www.deeplearning.ai/)** - 斯坦福大学前教授，Google Brain项目发起人、领导者。Coursera 的联合创始人和联合主席，在 Coursera 上有十万用户的《机器学习》课程；斯坦福大学计算机科学前教授。百度前副总裁、前首席科学家；谷歌最成功的人工智能项目之一——Google Brain的发起人、领导者。
 * **[李沐《动手学深度学习》](https://zh.d2l.ai/)** - 面向中文读者的能运行、可讨论的深度学习教科书含 PyTorch、NumPy/MXNet、TensorFlow 和 PaddlePaddle 实现被全球 70 多个国家 500 多所大学用于教学
 * **[fast.ai](https://www.fast.ai/)** - 完全免费并广受好评的深度学习课程
-* **[微软 cloud Advocates](https://microsoft.github.io/generative-ai-for-beginners/#/)** - Generative Al for Beginners 是微软 cloud Advocates 团队推出的十二章生成式AI入门的系列课程，介绍了构建生成式,A|应用程序的基础知识，在GitHub上已超过1.7万人星标。
+* **[微软 cloud Advocates](https://microsoft.github.io/generative-ai-for-beginners/#/)** - Generative Al for Beginners 是微软 cloud Advocates 团队推出的十二章生成式AI入门的系列课程，介绍了构建生成式,AI应用程序的基础知识，在GitHub上已超过1.7万人星标。
 每章都涵盖了生成式人工智能原理和应用程序开发的一个关键知识点，提供导学视频、书面材料、代码示例和进阶的学习资源推荐。通过整个课程的学习，你将拥有建立自己的生成式人工智能产品和工具的能力，实现应用AIGC技术的想法。
 * **[Udacity学院](https://www.udacity.com/school/artificial-intelligence**) - Udacity推出的School of Al，从入门到高级。
 
 ## AI聊天助手与搜索引擎
 
-* **[ChatGPT](https://chat.openai.com/)** - OpenAI开发，回答问题、写作、编程
+* **[ChatGPT](https://chat.openai.com/)** - OpenAI开发，回答问题、写作、编程。能做优秀的推理，只是推理需要收费。
 
 * **[Google Gemini](https://gemini.google.com/)** - Google推出支持多模态输入,可以理解文本、图像、音频等。
 
 * **[Perplexity](https://www.perplexity.ai/)** - 智能搜索引擎。能够直接回答用户问题,并提供信息来源。
+
+* **[Claude.ai](https://claude.ai/)** - Anthropic公司开发的AI助手官方网站。支持复杂对话、文档分析、代码编写等功能。目前仅对部分地区开放,需要注册账号使用。特点是准确度高、安全性强。
+
+* **[POE](https://poe.com/)** - 提供Claude访问的第三方平台。除了Claude外还可以使用多个AI模型。提供免费和付费计划,界面友好易用。
 
 * **[Kimi Chat](https://kimi.moonshot.cn/)** - 处理长文本、图像等多模态输入。提供免费额度,付费可获得更多功能。
 
