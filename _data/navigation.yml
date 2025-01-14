@@ -11,12 +11,12 @@ main:
   
 
   - title: "Teaching"
-    url: /teaching/    
+    url: /_teaching/    
     
 
         
   - title: "Blog Posts"
-    url: /year-archive/
+    url: /_posts/
     
   - title: "CV"
     url: /cv/
