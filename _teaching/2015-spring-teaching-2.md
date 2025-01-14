@@ -1,17 +1,12 @@
 ---
 title: "AI基础与智能管理课程"
-type: "MBA必修课"
+collection: teaching
+type: "Undergraduate course"
 permalink: /teaching/financial-economics
 venue: "湖南大学工商管理学院"
 date: 2025-01-01
 instructor: "周科"
-teaching_hours: 48
-schedule: 
-  - "周二  三四节, 1-16周 中105"
-  - "周五 五六节, 1-8周 中105"
-class_size: 59
-class_code: "财金2201-02"
-
+location: "工管院302教室"
 ---
 
 ## 课程简介
