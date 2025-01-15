@@ -27,6 +27,7 @@ redirect_from:
 
 * **[通义千问](https://tongyi.aliyun.com/)** - 阿里达摩院推出的大语言模型。具备强大的中文理解和生成能力,支持对话、写作、编程等多种任务。可通过网页版和API接口使用,通用阿里云账号。
 
+* **[谷歌AI实验室](https://aistudio.google.com/prompts/new_chat)** - 利用Google AI Studio，您可以快速尝试各种模型，使用不同的提示进行试验。准备好构建后，您可以选择“获取代码”和首选编程语言，以使用Gemini API。
 
 
 ## 著名高校人工智能课程
@@ -52,3 +53,4 @@ CS229：机器学习：系统讲解机器学习的理论和实践
 
 ## 其他链接
 * **[AI编程蓝皮书](https://superhuang.feishu.cn/wiki/CBBPwvgEuicVhFkx0s7cPmhpn4e)** - 使用Cursor和Windsurf（这两个都是AI编程的软件）开发产品后，意识到这才是创造者的天堂。是智谱面向未上市初创企业与优秀独立开发者/团队，提供 Tokens 赞助、投资支持和技术支持等资源的创新加速计划。
+
