@@ -47,7 +47,7 @@ CS229：机器学习：系统讲解机器学习的理论和实践
 * **[李沐《动手学深度学习》](https://zh.d2l.ai/)** - 面向中文读者的能运行、可讨论的深度学习教科书含 PyTorch、NumPy/MXNet、TensorFlow 和 PaddlePaddle 实现被全球 70 多个国家 500 多所大学用于教学
 * **[fast.ai](https://www.fast.ai/)** - 完全免费并广受好评的深度学习课程
 * **[微软 cloud Advocates](https://microsoft.github.io/generative-ai-for-beginners/#/)** - Generative Al for Beginners 是微软 cloud Advocates 团队推出的十二章生成式AI入门的系列课程，提供导学视频、书面材料、代码示例和进阶的学习资源推荐。
-* **[Udacity学院](https://www.udacity.com/school/artificial-intelligence**) - Udacity推出的School of Al，从入门到高级。
+* **[Udacity学院](https://www.udacity.com/school/artificial-intelligence**)** - Udacity推出的School of Al，从入门到高级。
 
 
 
