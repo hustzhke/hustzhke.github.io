@@ -51,8 +51,11 @@ CS229：机器学习：系统讲解机器学习的理论和实践
 
 
 
-## 其他链接
+## AI编程
 * **[AI编程蓝皮书](https://superhuang.feishu.cn/wiki/CBBPwvgEuicVhFkx0s7cPmhpn4e)** - 使用Cursor和Windsurf（这两个都是AI编程的软件）开发产品后，意识到这才是创造者的天堂。是智谱面向未上市初创企业与优秀独立开发者/团队，提供 Tokens 赞助、投资支持和技术支持等资源的创新加速计划。
   * **[LLM编程实践总结]([https://crawshaw.io/blog/programming-with-llms#overview](https://crawshaw.io/blog/programming-with-llms?continueFlag=cda17cac436c1d267a63d4fe6ca1471b))**-How I program with LLMs 提高输入效率,减少重复性工作
-* **[费曼学习法教学模式](https://www.hhsblog.me/posts/feynman-method-prompt/)** - 基于三角色互动的教学框架。由课程管理者、学生和智慧师傅共同完成知识传递和验证。
+
+## 提示词工程
 * **[AI学习路径指南:Waytoagi](https://waytoagi.feishu.cn/wiki/QPe5w5g7UisbEkkow8XcDmOpn8e)** - 系统化的AIGC入门学习资源。
+* **[Anthropic官方提示词库文档](https://docs.anthropic.com/zh-CN/prompt-library/library)** - Anthropic官方提供的AI提示词资源库。
+* **[费曼学习法教学模式](https://www.hhsblog.me/posts/feynman-method-prompt/)** - 基于三角色互动的教学框架。由课程管理者、学生和智慧师傅共同完成知识传递和验证。
