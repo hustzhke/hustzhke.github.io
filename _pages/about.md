@@ -7,11 +7,32 @@ redirect_from:
   - /about.html
 ---
 
+## AI聊天助手与搜索引擎
+
+* **[ChatGPT](https://chat.openai.com/)** - OpenAI开发，回答问题、写作、编程。能做优秀的推理，只是推理需要收费。
+
+* **[Google Gemini](https://gemini.google.com/)** - Google推出支持多模态输入,可以理解文本、图像、音频等。
+
+* **[Perplexity](https://www.perplexity.ai/)** - 智能搜索引擎。能够直接回答用户问题,并提供信息来源。
+
+* **[Claude.ai](https://claude.ai/)** - Anthropic公司开发的AI助手官方网站。支持复杂对话、文档分析、代码编写等功能。目前仅对部分地区开放,需要注册账号使用。特点是准确度高、安全性强。
+
+* **[POE](https://poe.com/)** - 集合了主流AI工具的第三方平台。除了Claude外还可以使用多个AI模型。提供免费和付费计划,界面友好易用。
+
+* **[Kimi Chat](https://kimi.moonshot.cn/)** - 处理长文本、图像等多模态输入。提供免费额度,付费可获得更多功能。
+
+* **[豆包](https://www.doubao.com/)** - 字节跳动旗下的AI助手。写作、翻译、编程，阅读pdf等任务。
+
+* **[元宝](https://yuanbao.tencent.com/chat/naQivTmsDa)** - 腾讯推出的AI助手，方便手机使用， 公众号文章阅读与总结尤其有效。
+
+* **[通义千问](https://tongyi.aliyun.com/)** - 阿里达摩院推出的大语言模型。具备强大的中文理解和生成能力,支持对话、写作、编程等多种任务。可通过网页版和API接口使用,通用阿里云账号。
+
+
 
 ## 著名高校人工智能课程
 
 * **[卡内基梅隆大学](https://phontron.com/class/anlp2024/lectures/)** - 卡内基梅隆大学 11-711 ANLP 高级自然语言处理课程 
-* **[斯坦福大学](https://ai.stanford.edu/courses/)** -斯坦福大学将 67 门AI相关课程聚合在一起，构建了这个课程合辑，便于进行课程选择和学习。斯坦福大学作为世界一流的大学，出品的计算机、机器学习、深度学习等系列课程一直备受好评。课程的公开视频、课件和作业等是很多入门者系统学习的首选。
+* **[斯坦福大学](https://ai.stanford.edu/courses/)** -斯坦福大学将 67 门AI相关课程聚合在一起，构建了这个课程合辑，便于进行课程选择和学习。课程备受好评公开视频、课件和作业等是很多入门者系统学习的首选。
 CS221：人工智能原理与技术：介绍AI的基本原理及其应用。
 CS230：深度学习：深入探讨深度学习技术及其在各个领域的应用。
 CS229：机器学习：系统讲解机器学习的理论和实践
@@ -27,24 +48,6 @@ CS229：机器学习：系统讲解机器学习的理论和实践
 每章都涵盖了生成式人工智能原理和应用程序开发的一个关键知识点，提供导学视频、书面材料、代码示例和进阶的学习资源推荐。通过整个课程的学习，你将拥有建立自己的生成式人工智能产品和工具的能力，实现应用AIGC技术的想法。
 * **[Udacity学院](https://www.udacity.com/school/artificial-intelligence**) - Udacity推出的School of Al，从入门到高级。
 
-## AI聊天助手与搜索引擎
 
-* **[ChatGPT](https://chat.openai.com/)** - OpenAI开发，回答问题、写作、编程。能做优秀的推理，只是推理需要收费。
-
-* **[Google Gemini](https://gemini.google.com/)** - Google推出支持多模态输入,可以理解文本、图像、音频等。
-
-* **[Perplexity](https://www.perplexity.ai/)** - 智能搜索引擎。能够直接回答用户问题,并提供信息来源。
-
-* **[Claude.ai](https://claude.ai/)** - Anthropic公司开发的AI助手官方网站。支持复杂对话、文档分析、代码编写等功能。目前仅对部分地区开放,需要注册账号使用。特点是准确度高、安全性强。
-
-* **[POE](https://poe.com/)** - 提供Claude访问的第三方平台。除了Claude外还可以使用多个AI模型。提供免费和付费计划,界面友好易用。
-
-* **[Kimi Chat](https://kimi.moonshot.cn/)** - 处理长文本、图像等多模态输入。提供免费额度,付费可获得更多功能。
-
-* **[豆包](https://www.doubao.com/)** - 字节跳动旗下的AI助手。写作、翻译、编程，阅读pdf等任务。
-
-* **[元宝](https://yuanbao.tencent.com/chat/naQivTmsDa)** - 腾讯推出的AI助手，方便手机使用， 公众号文章阅读与总结尤其有效。
-
-* **[通义千问](https://tongyi.aliyun.com/)** - 阿里达摩院推出的大语言模型。具备强大的中文理解和生成能力,支持对话、写作、编程等多种任务。可通过网页版和API接口使用,通用阿里云账号。
 
 ## 其他链接
