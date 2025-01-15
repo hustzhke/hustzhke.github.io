@@ -29,6 +29,7 @@ redirect_from:
 
 * **[谷歌AI实验室](https://aistudio.google.com/prompts/new_chat)** - 利用Google AI Studio，您可以快速尝试各种模型，使用不同的提示进行试验。准备好构建后，您可以选择“获取代码”和首选编程语言，以使用Gemini API。
 
+* **[Bolt.new](https://bolt.new/)** - 全栈Web应用开发和部署平台。
 
 ## 著名高校人工智能课程
 
