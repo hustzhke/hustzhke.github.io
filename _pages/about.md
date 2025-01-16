@@ -14,7 +14,7 @@ redirect_from:
 * **[Google Gemini](https://gemini.google.com/)** - Google推出支持多模态输入,可以理解文本、图像、音频等。
 
 * **[Perplexity](https://www.perplexity.ai/)** - 智能搜索引擎。能够直接回答用户问题,并提供信息来源。
-
+* **[MindSearch](https://mindsearch.openxlab.org.cn/)** - 中国版本的perplexity中科大与上海人工智能实验室共同开发的开源AI搜索引擎框架
 * **[Claude.ai](https://claude.ai/)** - Anthropic公司开发的AI助手官方网站。支持复杂对话、文档分析、代码编写等功能。目前仅对部分地区开放,需要注册账号使用。特点是准确度高、安全性强。
 
 * **[POE](https://poe.com/)** - 集合了主流AI工具的第三方平台。除了Claude外还可以使用多个AI模型。提供免费和付费计划,界面友好易用。
