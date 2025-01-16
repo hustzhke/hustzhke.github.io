@@ -49,6 +49,7 @@ CS229：机器学习：系统讲解机器学习的理论和实践
 * **[微软 cloud Advocates](https://microsoft.github.io/generative-ai-for-beginners/#/)** - Generative Al for Beginners 是微软 cloud Advocates 团队推出的十二章生成式AI入门的系列课程，提供导学视频、书面材料、代码示例和进阶的学习资源推荐。
 * **[Udacity学院](https://www.udacity.com/school/artificial-intelligence**)** - Udacity推出的School of Al，从入门到高级。
 * **[黄佳：动手做AI Agent](https://github.com/huangjia2019/ai-agents)** - 异步社区的大模型应用开发入门教程。
+* **[学习资源路线图](https://genai-handbook.github.io/)** - William Brown编写的生成式AI知识体系指南
 
 
 ## AI编程
