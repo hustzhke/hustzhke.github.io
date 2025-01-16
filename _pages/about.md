@@ -29,7 +29,7 @@ redirect_from:
 * **[通义千问](https://tongyi.aliyun.com/)** - 阿里达摩院推出的大语言模型。具备强大的中文理解和生成能力,支持对话、写作、编程等多种任务。可通过网页版和API接口使用,通用阿里云账号。
 
 * **[谷歌AI实验室](https://aistudio.google.com/prompts/new_chat)** - 利用Google AI Studio，您可以快速尝试各种模型，使用不同的提示进行试验。准备好构建后，您可以选择“获取代码”和首选编程语言，以使用Gemini API。
-
+* **[STORM AI](https://storm.genie.stanford.edu/)** - 斯坦福大学开发的开源AI写作工具。
 * **[Bolt.new](https://bolt.new/)** - 全栈Web应用开发和部署平台。
 
 ## 著名高校人工智能课程
