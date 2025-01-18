@@ -51,7 +51,7 @@ CS229：机器学习：系统讲解机器学习的理论和实践
 * **[Udacity学院](https://www.udacity.com/school/artificial-intelligence**)** - Udacity推出的School of Al，从入门到高级。
 * **[黄佳：动手做AI Agent](https://github.com/huangjia2019/ai-agents)** - 异步社区的大模型应用开发入门教程。
 * **[学习资源路线图](https://genai-handbook.github.io/)** - William Brown编写的生成式AI知识体系指南
-
+* **[《Foundations of Large Language Models》](https://arxiv.org/abs/2501.09223)** - 肖桐、朱靖波著作的大语言模型基础教程 分别探讨关键领域：预训练、生成模型、提示技术以及对齐方法。这本书面向自然语言处理及相关领域的大学生、专业人士和从业者，并且可供对大型语言模型感兴趣的任何人参考
 
 ## AI编程
 * **[AI编程蓝皮书](https://superhuang.feishu.cn/wiki/CBBPwvgEuicVhFkx0s7cPmhpn4e)** - 使用Cursor和Windsurf（这两个都是AI编程的软件）开发产品后，意识到这才是创造者的天堂。是智谱面向未上市初创企业与优秀独立开发者/团队，提供 Tokens 赞助、投资支持和技术支持等资源的创新加速计划。
