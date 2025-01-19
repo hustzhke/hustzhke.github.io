@@ -65,3 +65,4 @@ CS229：机器学习：系统讲解机器学习的理论和实践
 * **[Aconvert](https://www.aconvert.com/)** - 免费的在线文件格式转换平台。
 ## 其他
 * **[AIGC综合导航](https://www.aigc.cn/)** - 全网最全面的生成式AI工具分类导航网站
+* **[AI工具集](https://ai-bot.cn/)** - 1000+AI工具集合导航。
