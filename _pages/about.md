@@ -61,5 +61,7 @@ CS229：机器学习：系统讲解机器学习的理论和实践
 * **[AI学习路径指南:Waytoagi](https://waytoagi.feishu.cn/wiki/QPe5w5g7UisbEkkow8XcDmOpn8e)** - 系统化的AIGC入门学习资源。
 * **[Anthropic官方提示词库文档](https://docs.anthropic.com/zh-CN/prompt-library/library)** - Anthropic官方提供的AI提示词资源库。
 * **[费曼学习法教学模式](https://www.hhsblog.me/posts/feynman-method-prompt/)** - 基于三角色互动的教学框架。由课程管理者、学生和智慧师傅共同完成知识传递和验证。
+## 小工具
+* **[Aconvert](https://www.aconvert.com/)** - 免费的在线文件格式转换平台。
 ## 其他
 * **[AIGC综合导航](https://www.aigc.cn/)** - 全网最全面的生成式AI工具分类导航网站
