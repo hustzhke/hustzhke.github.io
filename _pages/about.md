@@ -67,6 +67,7 @@ CS229：机器学习：系统讲解机器学习的理论和实践
 * **[AiPPT](https://www.aippt.cn/)** - AI一键生成PPT工具。
 * **[HeyGen](https://app.heygen.com/)** - AI数字人视频生成工具
 * **[Text To Speech](https://www.text-to-speech.cn/)** - 在线文本转语音工具。
+* **[TTS Online](https://www.ttson.cn/)** TTS Online (海豚AI) 语音合成平台
 ## 其他
 * **[AIGC综合导航](https://www.aigc.cn/)** - 全网最全面的生成式AI工具分类导航网站
 * **[AI工具集](https://ai-bot.cn/)** - 1000+AI工具集合导航。
