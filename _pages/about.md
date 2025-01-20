@@ -31,6 +31,7 @@ redirect_from:
 * **[谷歌AI实验室](https://aistudio.google.com/prompts/new_chat)** - 利用Google AI Studio，您可以快速尝试各种模型，使用不同的提示进行试验。准备好构建后，您可以选择“获取代码”和首选编程语言，以使用Gemini API。
 * **[STORM AI](https://storm.genie.stanford.edu/)** - 斯坦福大学开发的开源AI写作工具。
 * **[Bolt.new](https://bolt.new/)** - 全栈Web应用开发和部署平台。
+* **[Bolt.DIY](https://github.com/stackblitz-labs/bolt.diy)** - 开源版 Bolt.new，自助做个Bolt.new，自己接廉价版deepseek以及各种LLM（多谢Charles刘端阳提供建议）。
 * **[Leonardo.AI](https://app.leonardo.ai/)** - 专业级AI绘图工具。
 ## 著名高校人工智能课程
 
