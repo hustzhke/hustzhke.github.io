@@ -19,7 +19,7 @@ redirect_from:
 * **[Claude.ai](https://claude.ai/)** - Anthropic公司开发的AI助手官方网站。支持复杂对话、文档分析、代码编写等功能。目前仅对部分地区开放,需要注册账号使用。特点是准确度高、安全性强。
 
 * **[POE](https://poe.com/)** - 集合了主流AI工具的第三方平台。除了Claude外还可以使用多个AI模型。提供免费和付费计划,界面友好易用。
-
+* **[DeepSeek Chat](https://chat.deepseek.com/)** - 当红国内AI，深度求索AI对话平台
 * **[Kimi Chat](https://kimi.moonshot.cn/)** - 处理长文本、图像等多模态输入。提供免费额度,付费可获得更多功能。
 
 * **[豆包](https://www.doubao.com/)** - 字节跳动旗下的AI助手。写作、翻译、编程，阅读pdf等任务。
