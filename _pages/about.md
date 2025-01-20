@@ -54,7 +54,7 @@ redirect_from:
 * **[Cursor](https://www.cursor.com/)** - AI驱动的代码编辑器，VSCode兼容，AI代码补全，一键修改
 * **[MarsCode](https://www.marscode.com/)** - 豆包旗下AI编程工具。中文编程
 * **[AI编程蓝皮书](https://superhuang.feishu.cn/wiki/CBBPwvgEuicVhFkx0s7cPmhpn4e)** - 使用Cursor和Windsurf（这两个都是AI编程的软件）开发产品后，意识到这才是创造者的天堂。是智谱面向未上市初创企业与优秀独立开发者/团队，提供 Tokens 赞助、投资支持和技术支持等资源的创新加速计划。
-* **[LLM编程实践总结]([https://crawshaw.io/blog/programming-with-llms#overview](https://crawshaw.io/blog/programming-with-llms?continueFlag=cda17cac436c1d267a63d4fe6ca1471b))**-How I program with LLMs 提高输入效率,减少重复性工作
+* **[LLM编程实践总结](https://crawshaw.io/blog/programming-with-llms?continueFlag=cda17cac436c1d267a63d4fe6ca1471b)**-How I program with LLMs 提高输入效率,减少重复性工作
 * **[《方糖AI自编程入门》](https://github.com/easychen/ai-self-coding-book)** - 方糖AI编程教程，把计划(Plan)、执行(Do)、检查(Check)、行动(Action) 这个项目循环拓展成—— PDTAC循环。
 ## 提示词工程
 * **[AI学习路径指南:Waytoagi](https://waytoagi.feishu.cn/wiki/QPe5w5g7UisbEkkow8XcDmOpn8e)** - 系统化的AIGC入门学习资源。
