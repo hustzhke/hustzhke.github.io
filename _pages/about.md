@@ -36,9 +36,6 @@ redirect_from:
 
 * **[卡内基梅隆大学](https://phontron.com/class/anlp2024/lectures/)** - 卡内基梅隆大学 11-711 ANLP 高级自然语言处理课程 
 * **[斯坦福大学](https://ai.stanford.edu/courses/)** -斯坦福大学将 67 门AI相关课程聚合在一起，构建了这个课程合辑，便于进行课程选择和学习。课程备受好评公开视频、课件和作业等是很多入门者系统学习的首选。
-CS221：人工智能原理与技术：介绍AI的基本原理及其应用。
-CS230：深度学习：深入探讨深度学习技术及其在各个领域的应用。
-CS229：机器学习：系统讲解机器学习的理论和实践
 * **[斯坦福大学](https://cs229.stanford.edu/)** - Stanford CS229，最初由吴恩达教授讲授，课程官网发布了更新的主题。
 * **[麻省理工大学](https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/)** -MIT 6.036是全球顶校麻省理工开设的机器学习入门课程，课程系统分版块地讲解了机器学习核心模型算法与解决问题思路。课程内容覆盖：传统机器学习模型（树模型、集成模型、聚类算法、逻辑回归），深度学习典型模型（感知器、神经网络、CNN、RNN），以及强化学习的部分算法
 
@@ -55,6 +52,7 @@ CS229：机器学习：系统讲解机器学习的理论和实践
 * **[The Large Language Model Course](https://huggingface.co/blog/mlabonne/llm-course)** - Maxime Labonne在Hugging Face平台推出的LLM课程
 ## AI编程
 * **[Cursor](https://www.cursor.com/)** - AI驱动的代码编辑器，VSCode兼容，AI代码补全，一键修改
+* **[MarsCode](https://www.marscode.com/)** - 豆包旗下AI编程工具。中文编程
 * **[AI编程蓝皮书](https://superhuang.feishu.cn/wiki/CBBPwvgEuicVhFkx0s7cPmhpn4e)** - 使用Cursor和Windsurf（这两个都是AI编程的软件）开发产品后，意识到这才是创造者的天堂。是智谱面向未上市初创企业与优秀独立开发者/团队，提供 Tokens 赞助、投资支持和技术支持等资源的创新加速计划。
 * **[LLM编程实践总结]([https://crawshaw.io/blog/programming-with-llms#overview](https://crawshaw.io/blog/programming-with-llms?continueFlag=cda17cac436c1d267a63d4fe6ca1471b))**-How I program with LLMs 提高输入效率,减少重复性工作
 
