@@ -72,6 +72,7 @@ redirect_from:
 * **[Text To Speech](https://www.text-to-speech.cn/)** - 在线文本转语音工具。
 * **[TTS Online](https://www.ttson.cn/)** TTS Online (海豚AI) 语音合成平台
 ## 其他
+* **[AI产品榜](https://www.aicpb.com)** - 全球影响力AI排行榜平台（中文）。 - MAU/访问量 增长数据 营收情况
 * **[AIGC综合导航](https://www.aigc.cn/)** - 全网最全面的生成式AI工具分类导航网站
 * **[AI工具集](https://ai-bot.cn/)** - 1000+AI工具集合导航。
 * **[Awesome-Chinese-LLM](https://github.com/HqWu-HITCS/Awesome-Chinese-LLM)** - 中文开源大模型收集。
