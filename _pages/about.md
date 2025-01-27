@@ -61,7 +61,7 @@ redirect_from:
 * **[LLM编程实践总结](https://crawshaw.io/blog/programming-with-llms?continueFlag=cda17cac436c1d267a63d4fe6ca1471b)**-How I program with LLMs 提高输入效率,减少重复性工作
 * **[《方糖AI自编程入门》](https://github.com/easychen/ai-self-coding-book)** - 方糖AI编程教程，把计划(Plan)、执行(Do)、检查(Check)、行动(Action) 这个项目循环拓展成—— PDTAC循环。
 * **[RLHF Book](https://rlhfbook.com)** - Nathan Lambert编写的RLHF人类反馈强化学习入门
-
+* **[Awesome Generative AI Guide](https://github.com/aishwaryanr/awesome-generative-ai-guide/)** - 综合生成式AI学习资源集合，主要分四部分：1. 按月更新的每月最佳研究论文，2. 最近推出的免费课程，3. 相关职位的面试题（这部分内容不多）,4. 关于RAG、模型微调等技术的代码示例和教程
 ## 提示词工程
 * **[AI学习路径指南:Waytoagi](https://waytoagi.feishu.cn/wiki/QPe5w5g7UisbEkkow8XcDmOpn8e)** - 系统化的AIGC入门学习资源。
 * **[Anthropic官方提示词库文档](https://docs.anthropic.com/zh-CN/prompt-library/library)** - Anthropic官方提供的AI提示词资源库。
