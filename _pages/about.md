@@ -41,12 +41,13 @@ redirect_from:
 * **[斯坦福大学](https://cs229.stanford.edu/)** - Stanford CS229，最初由吴恩达教授讲授，课程官网发布了更新的主题。
 * **[麻省理工大学](https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/)** -MIT 6.036是全球顶校麻省理工开设的机器学习入门课程，课程系统分版块地讲解了机器学习核心模型算法与解决问题思路。课程内容覆盖：传统机器学习模型（树模型、集成模型、聚类算法、逻辑回归），深度学习典型模型（感知器、神经网络、CNN、RNN），以及强化学习的部分算法
 * **[上海交大的大语言模型课程（CS2916）](https://gair-nlp.github.io/cs2916/docs/intro))** - Transformer、提示学习、预训练、续训练、指令精调、安全与对齐、奖励函数、基于人类反馈的强化学习、评估、智能体等。
-* **[马少平教授AI科普系列](https://weibo.com/u/1929644930?tabtype=newVideo)**- 通过新浪微博进行AI科普.
+
 
 ## 著名博客与个人网站
 * **[吴恩达](https://www.deeplearning.ai/)** - 斯坦福大学前教授，Google Brain项目发起人、领导者。Coursera 的联合创始人和联合主席，在 Coursera 上有十万用户的《机器学习》课程；斯坦福大学计算机科学前教授。百度前副总裁、前首席科学家；谷歌最成功的人工智能项目之一——Google Brain的发起人、领导者。
 * **[李沐《动手学深度学习》](https://zh.d2l.ai/)** - 面向中文读者的能运行、可讨论的深度学习教科书含 PyTorch、NumPy/MXNet、TensorFlow 和 PaddlePaddle 实现被全球 70 多个国家 500 多所大学用于教学
 * **[fast.ai](https://www.fast.ai/)** - 完全免费并广受好评的深度学习课程
+* * **[马少平教授AI科普系列](https://weibo.com/u/1929644930?tabtype=newVideo)**- 通过新浪微博进行AI科普.
 * **[微软 cloud Advocates](https://microsoft.github.io/generative-ai-for-beginners/#/)** - Generative Al for Beginners 是微软 cloud Advocates 团队推出的十二章生成式AI入门的系列课程，提供导学视频、书面材料、代码示例和进阶的学习资源推荐。
 * **[Udacity学院](https://www.udacity.com/school/artificial-intelligence**)** - Udacity推出的School of Al，从入门到高级。
 * **[黄佳：动手做AI Agent](https://github.com/huangjia2019/ai-agents)** - 异步社区的大模型应用开发入门教程。
