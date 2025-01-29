@@ -47,6 +47,7 @@ redirect_from:
 * **[吴恩达](https://www.deeplearning.ai/)** - 斯坦福大学前教授，Google Brain项目发起人、领导者。Coursera 的联合创始人和联合主席，在 Coursera 上有十万用户的《机器学习》课程；斯坦福大学计算机科学前教授。百度前副总裁、前首席科学家；谷歌最成功的人工智能项目之一——Google Brain的发起人、领导者。
 * **[李沐《动手学深度学习》](https://zh.d2l.ai/)** - 面向中文读者的能运行、可讨论的深度学习教科书含 PyTorch、NumPy/MXNet、TensorFlow 和 PaddlePaddle 实现被全球 70 多个国家 500 多所大学用于教学
 * **[fast.ai](https://www.fast.ai/)** - 完全免费并广受好评的深度学习课程
+* **[李宏毅深度强化学习课程(2018)](https://www.youtube.com/watch?v=z95ZYgPgXOY&list=PLJV_el3uVTsODxQFgzMzPLa16h6B8kWM_)** - youtube经典强化学习教程
 * **[马少平教授AI科普系列](https://weibo.com/u/1929644930?tabtype=newVideo)**- 通过新浪微博进行AI科普.
 * **[微软 cloud Advocates](https://microsoft.github.io/generative-ai-for-beginners/#/)** - Generative Al for Beginners 是微软 cloud Advocates 团队推出的十二章生成式AI入门的系列课程，提供导学视频、书面材料、代码示例和进阶的学习资源推荐。
 * **[Udacity学院](https://www.udacity.com/school/artificial-intelligence**)** - Udacity推出的School of Al，从入门到高级。
