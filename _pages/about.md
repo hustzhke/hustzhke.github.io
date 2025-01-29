@@ -68,6 +68,7 @@ redirect_from:
 * **[费曼学习法教学模式](https://www.hhsblog.me/posts/feynman-method-prompt/)** - 基于三角色互动的教学框架。由课程管理者、学生和智慧师傅共同完成知识传递和验证。
 ## 小工具
 * **[Suno](https://suno.com)** - AI一站式音乐创作平台，AI辅助音乐创作。
+* **[YuE (乐)](https://github.com/multimodal-art-projection/YuE)** - 开源全长音乐生成基础模型， 能生成最长5分钟的音乐，结构比较连贯，有旋律、有乐器伴奏
 * **[Aconvert](https://www.aconvert.com/)** - 免费的在线文件格式转换平台。
 * **[MathGPT](https://math-gpt.org/)** - AI驱动的数学解题平台，数学题解答 视频解释。
 * **[Gamma](https://gamma.app/)** -美国版 AI驱动的PPT生成平台。
