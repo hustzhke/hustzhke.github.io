@@ -79,6 +79,7 @@ redirect_from:
 * **[TTS Online](https://www.ttson.cn/)** TTS Online (海豚AI) 语音合成平台
 ## 其他
 * **[Polymarket](https://polymarket.com)** - 全球最大预测市场平台，完事皆可预测（赌）
+* **[SensorTower全球数字经济市场情报平台](https://app.sensortower-china.com/top-charts?category=0&country=US&date=2025-02-04&device=iphone&os=ios)**-榜单尤其是引用下载:数据追踪 应用排名 下载量统计  收入分析 用户行为 
 * **[AI产品榜](https://www.aicpb.com)** - 全球影响力AI排行榜平台（中文）。 - MAU/访问量 增长数据 营收情况
 * **[AIGC综合导航](https://www.aigc.cn/)** - 全网最全面的生成式AI工具分类导航网站
 * **[AI工具集](https://ai-bot.cn/)** - 1000+AI工具集合导航。
