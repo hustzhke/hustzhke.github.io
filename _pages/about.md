@@ -44,6 +44,7 @@ redirect_from:
 
 
 ## 著名博客与个人网站
+* **[大神Karpathy](www.youtube.com/watch?v=7xTGNNLPyMI)** -AI 大神Karpathy再发LLM入门介绍视频，入门必看！
 * **[吴恩达](https://www.deeplearning.ai/)** - 斯坦福大学前教授，Google Brain项目发起人、领导者。Coursera 的联合创始人和联合主席，在 Coursera 上有十万用户的《机器学习》课程；斯坦福大学计算机科学前教授。百度前副总裁、前首席科学家；谷歌最成功的人工智能项目之一——Google Brain的发起人、领导者。
 * **[李沐《动手学深度学习》](https://zh.d2l.ai/)** - 面向中文读者的能运行、可讨论的深度学习教科书含 PyTorch、NumPy/MXNet、TensorFlow 和 PaddlePaddle 实现被全球 70 多个国家 500 多所大学用于教学
 * **[fast.ai](https://www.fast.ai/)** - 完全免费并广受好评的深度学习课程
