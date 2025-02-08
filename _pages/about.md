@@ -15,7 +15,7 @@ redirect_from:
 
 * **[Perplexity](https://www.perplexity.ai/)** - 智能搜索引擎。能够直接回答用户问题,并提供信息来源。
 * **[MindSearch](https://mindsearch.openxlab.org.cn/)** - 中国版本的perplexity中科大与上海人工智能实验室共同开发的开源AI搜索引擎框架
-* **[Genspark](https://www.genspark.ai/)** - 创新的AI搜索引擎平台，前百度高管景鲲和朱凯华共同创立的MainFunc公司推出
+
 * **[Claude.ai](https://claude.ai/)** - Anthropic公司开发的AI助手官方网站。支持复杂对话、文档分析、代码编写等功能。目前仅对部分地区开放,需要注册账号使用。特点是准确度高、安全性强。
 
 * **[POE](https://poe.com/)** - 集合了主流AI工具的第三方平台。除了Claude外还可以使用多个AI模型。提供免费和付费计划,界面友好易用。
@@ -29,8 +29,8 @@ redirect_from:
 
 * **[通义千问](https://tongyi.aliyun.com/)** - 阿里达摩院推出的大语言模型。具备强大的中文理解和生成能力,支持对话、写作、编程等多种任务。可通过网页版和API接口使用,通用阿里云账号。
 
-* **[谷歌AI实验室](https://aistudio.google.com/prompts/new_chat)** - 利用Google AI Studio，您可以快速尝试各种模型，使用不同的提示进行试验。准备好构建后，您可以选择“获取代码”和首选编程语言，以使用Gemini API。
-* **[STORM AI](https://storm.genie.stanford.edu/)** - 斯坦福大学开发的开源AI写作工具。
+
+
 * **[Bolt.new](https://bolt.new/)** - 全栈Web应用开发和部署平台。
 * **[Bolt.DIY](https://github.com/stackblitz-labs/bolt.diy)** - 开源版 Bolt.new，自助做个Bolt.new，自己接廉价版deepseek以及各种LLM（多谢Charles刘端阳提供建议）。
 * **[Leonardo.AI](https://app.leonardo.ai/)** - 专业级AI绘图工具。
@@ -42,10 +42,15 @@ redirect_from:
 * **[麻省理工大学](https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/)** -MIT 6.036是全球顶校麻省理工开设的机器学习入门课程，课程系统分版块地讲解了机器学习核心模型算法与解决问题思路。课程内容覆盖：传统机器学习模型（树模型、集成模型、聚类算法、逻辑回归），深度学习典型模型（感知器、神经网络、CNN、RNN），以及强化学习的部分算法
 * **[上海交大的大语言模型课程（CS2916）](https://gair-nlp.github.io/cs2916/docs/intro))** - Transformer、提示学习、预训练、续训练、指令精调、安全与对齐、奖励函数、基于人类反馈的强化学习、评估、智能体等。
 
-
+## 科研工具
+* **[谷歌AI实验室](https://aistudio.google.com/prompts/new_chat)** - 利用Google AI Studio，您可以快速尝试各种模型，使用不同的提示进行试验。准备好构建后，您可以选择“获取代码”和首选编程语言，以使用Gemini API。
+* **[STORM AI](https://storm.genie.stanford.edu/)** - 斯坦福大学开发的开源AI写作工具。
+* **[alphaXiv](https://www.alphaxiv.org/explore)** - 官方 arXiv Labs 出品，集成了 AI 功能，你不仅可以基于某篇论文进行问答，还可以通过 @ 引用其他论文的章节，有些类似于 AI 代码编辑器 Cursor 中 @ 引用其他代码文件或里面的方法。
+* **[Genspark](https://www.genspark.ai/)** - 创新的AI搜索引擎平台，前百度高管景鲲和朱凯华共同创立的MainFunc公司推出
 ## 著名博客与个人网站
 * **[大神Karpathy](www.youtube.com/watch?v=7xTGNNLPyMI)** -AI 大神Karpathy再发LLM入门介绍视频，入门必看！
 * **[吴恩达](https://www.deeplearning.ai/)** - 斯坦福大学前教授，Google Brain项目发起人、领导者。Coursera 的联合创始人和联合主席，在 Coursera 上有十万用户的《机器学习》课程；斯坦福大学计算机科学前教授。百度前副总裁、前首席科学家；谷歌最成功的人工智能项目之一——Google Brain的发起人、领导者。
+* **[吴恩达讲述如何做推理](https://learn.deeplearning.ai/courses/reasoning-with-o1/lesson/1/introduction)** - 介绍推理与O1的基本概念。
 * **[李沐《动手学深度学习》](https://zh.d2l.ai/)** - 面向中文读者的能运行、可讨论的深度学习教科书含 PyTorch、NumPy/MXNet、TensorFlow 和 PaddlePaddle 实现被全球 70 多个国家 500 多所大学用于教学
 * **[fast.ai](https://www.fast.ai/)** - 完全免费并广受好评的深度学习课程
 * **[李宏毅深度强化学习课程(2018)](https://www.youtube.com/watch?v=z95ZYgPgXOY&list=PLJV_el3uVTsODxQFgzMzPLa16h6B8kWM_)** - youtube经典强化学习教程，备用(https://github.com/morningsky/NTU-ReinforcementLearning-Notes)
