@@ -17,7 +17,7 @@ redirect_from:
 * **[初学者AI Agent课程](https://github.com/microsoft/ai-agents-for-beginners/tree/main)** - 微软推出的《初学者AI Agent课程（AI Agents for Beginners - A Course）》，旨在教授从零开始构建AI Agent的基础知识。它提供了一个针对初学者的AI Agent课程，包含10节课，涵盖构建AI Agent的基础知识。 课程内容包括各种Agentic设计模式，如工具使用、RAG、可信赖AI Agent构建、规划和多Agent等。
 
 ## 微软《AI Agent设计模式与AutoGen（AI Agentic Design Patterns with AutoGen）》
-* **[AI Agentic Design Patterns with AutoGen](https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autogen/?utm_source=www.turingpost.com&utm_medium=referral&utm_campaign=8-free-sources-to-master-building-ai-agents)** - 微软推出的《初学者AI Agent课程（AI Agents for Beginners - A Course）》，旨在教授从零开始构建AI Agent的基础知识。它提供了一个针对初学者的AI Agent课程，包含10节课，涵盖构建AI Agent的基础知识。 课程内容包括各种Agentic设计模式，如工具使用、RAG、可信赖AI Agent构建、规划和多Agent等。
+* **[AI Agentic Design Patterns with AutoGen](https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autogen/?utm_source=www.turingpost.com&utm_medium=referral&utm_campaign=8-free-sources-to-master-building-ai-agents)** - 微软推出的旨在教授初学者如何使用AutoGen框架构建多Agent AI应用程序。课程内容包括Agents设计模式的实施，如反射、工具使用、规划和多Agent协作。。该课程由微软研究员Chi Wang和宾夕法尼亚州立大学助理教授Qingyun Wu教授，他们也是AutoGen的创建者。
 ## Hugging Face《AI Agents Course》
 * **[AI Agents Course](https://huggingface.co/learn/agents-course/en/unit0/introduction)** - Hugging Face推出了一个免费的AI Agents课程（AI Agents Course），旨在帮助学员从初学者成长为专家，掌握AI Agent的理解、使用和构建。课程涵盖理论、设计和实践，并教授使用流行的 Agent 库（例如smolagents、LangChain 和LlamaIndex）
 
