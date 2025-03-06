@@ -6,6 +6,39 @@ redirect_from:
   - /about/
   - /about.html
 ---
+# 一、Agent学习参考资料
+## 《大模型应用开发 动手做AI Agent》
+* **[黄佳：动手做AI Agent](https://github.com/huangjia2019/ai-agents)** - 异步社区的大模型应用开发入门教程。
+## 从零到手搓一个Agent：AI Agents新手入门精通
+* **[AI Agents新手入门精通](https://cloud.tencent.com/developer/article/2487274)** - 腾讯开发者社区入门教程。
+## Agent从入门到项目实战！
+* **[AI Agents新手入门精通](https://www.bilibili.com/video/BV1zH4y1F71H/?vd_source=45a298dcec13043038a9e006ee72dcb0)** - 【Agent保姆级教程】同济大佬12小时带你从入门到精通。
+## 微软《AI Agentic Design Patterns with AutoGen》
+* **[AI Agents新手入门精通](https://github.com/microsoft/ai-agents-for-beginners/tree/main)** - 微软推出的《初学者AI Agent课程（AI Agents for Beginners - A Course）》，旨在教授从零开始构建AI Agent的基础知识。它提供了一个针对初学者的AI Agent课程，包含10节课，涵盖构建AI Agent的基础知识。 课程内容包括各种Agentic设计模式，如工具使用、RAG、可信赖AI Agent构建、规划和多Agent等。
+## Hugging Face《AI Agents Course》
+* **[AI Agents新手入门精通](https://huggingface.co/learn/agents-course/en/unit0/introduction)** - Hugging Face推出了一个免费的AI Agents课程（AI Agents Course），旨在帮助学员从初学者成长为专家，掌握AI Agent的理解、使用和构建。课程涵盖理论、设计和实践，并教授使用流行的 Agent 库（例如smolagents、LangChain 和LlamaIndex）
+## 微软《AI Agent设计模式与AutoGen（AI Agentic Design Patterns with AutoGen）》
+* **[AI Agents新手入门精通](https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autogen/?utm_source=www.turingpost.com&utm_medium=referral&utm_campaign=8-free-sources-to-master-building-ai-agents)** - 微软推出的《初学者AI Agent课程（AI Agents for Beginners - A Course）》，旨在教授从零开始构建AI Agent的基础知识。它提供了一个针对初学者的AI Agent课程，包含10节课，涵盖构建AI Agent的基础知识。 课程内容包括各种Agentic设计模式，如工具使用、RAG、可信赖AI Agent构建、规划和多Agent等。
+
+# 二、学习路线建议
+
+## 基础阶段(2-3周)
+- 掌握Python基础和LLM原理
+- 学习LangChain/SmolAgent等框架
+- 完成天气查询/邮件发送等简单Agent开发
+
+## 进阶阶段(4-6周)
+- 实现多Agent协作系统
+- 集成RAG/规划等高级能力
+- 参与Hugging Face社区挑战赛
+
+## 实战阶段(持续)
+- 选择电商/医疗等垂直领域深耕
+- 构建具备自主决策能力的Agent
+- 关注AutoGen等最新框架动态
+
+
+
 
 ## AI聊天助手与搜索引擎
 
@@ -57,7 +90,7 @@ redirect_from:
 * **[马少平教授AI科普系列](https://weibo.com/u/1929644930?tabtype=newVideo)**- 通过新浪微博进行AI科普.
 * **[微软 cloud Advocates](https://microsoft.github.io/generative-ai-for-beginners/#/)** - Generative Al for Beginners 是微软 cloud Advocates 团队推出的十二章生成式AI入门的系列课程，提供导学视频、书面材料、代码示例和进阶的学习资源推荐。
 * **[Udacity学院](https://www.udacity.com/school/artificial-intelligence**)** - Udacity推出的School of Al，从入门到高级。
-* **[黄佳：动手做AI Agent](https://github.com/huangjia2019/ai-agents)** - 异步社区的大模型应用开发入门教程。
+
 * **[学习资源路线图](https://genai-handbook.github.io/)** - William Brown编写的生成式AI知识体系指南
 * **[《Foundations of Large Language Models》](https://arxiv.org/abs/2501.09223)** - 肖桐、朱靖波著作的大语言模型基础教程 分别探讨关键领域：预训练、生成模型、提示技术以及对齐方法。这本书面向自然语言处理及相关领域的大学生、专业人士和从业者，并且可供对大型语言模型感兴趣的任何人参考
 * **[The Large Language Model Course](https://huggingface.co/blog/mlabonne/llm-course)** - Maxime Labonne在Hugging Face平台推出的LLM课程
