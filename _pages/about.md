@@ -9,16 +9,17 @@ redirect_from:
 # 一、Agent学习参考资料
 ## 《大模型应用开发 动手做AI Agent》
 * **[黄佳：动手做AI Agent](https://github.com/huangjia2019/ai-agents)** - 异步社区的大模型应用开发入门教程。
-## 从零到手搓一个Agent：AI Agents新手入门精通
-* **[AI Agents新手入门精通](https://cloud.tencent.com/developer/article/2487274)** - 腾讯开发者社区入门教程。
-## Agent从入门到项目实战！
-* **[AI Agents新手入门精通](https://www.bilibili.com/video/BV1zH4y1F71H/?vd_source=45a298dcec13043038a9e006ee72dcb0)** - 【Agent保姆级教程】同济大佬12小时带你从入门到精通。
-## 微软《AI Agentic Design Patterns with AutoGen》
-* **[AI Agents新手入门精通](https://github.com/microsoft/ai-agents-for-beginners/tree/main)** - 微软推出的《初学者AI Agent课程（AI Agents for Beginners - A Course）》，旨在教授从零开始构建AI Agent的基础知识。它提供了一个针对初学者的AI Agent课程，包含10节课，涵盖构建AI Agent的基础知识。 课程内容包括各种Agentic设计模式，如工具使用、RAG、可信赖AI Agent构建、规划和多Agent等。
-## Hugging Face《AI Agents Course》
-* **[AI Agents新手入门精通](https://huggingface.co/learn/agents-course/en/unit0/introduction)** - Hugging Face推出了一个免费的AI Agents课程（AI Agents Course），旨在帮助学员从初学者成长为专家，掌握AI Agent的理解、使用和构建。课程涵盖理论、设计和实践，并教授使用流行的 Agent 库（例如smolagents、LangChain 和LlamaIndex）
+## 《从零到手搓一个Agent：AI Agents新手入门精通》
+* **[从零到手搓一个Agent](https://cloud.tencent.com/developer/article/2487274)** - 腾讯开发者社区入门教程。
+## 《Agent从入门到项目实战！》
+* **[Agent保姆级教程](https://www.bilibili.com/video/BV1zH4y1F71H/?vd_source=45a298dcec13043038a9e006ee72dcb0)** - 【Agent保姆级教程】同济大佬12小时带你从入门到精通。
+## 微软《初学者AI Agent课程（AI Agents for Beginners - A Course）》
+* **[初学者AI Agent课程](https://github.com/microsoft/ai-agents-for-beginners/tree/main)** - 微软推出的《初学者AI Agent课程（AI Agents for Beginners - A Course）》，旨在教授从零开始构建AI Agent的基础知识。它提供了一个针对初学者的AI Agent课程，包含10节课，涵盖构建AI Agent的基础知识。 课程内容包括各种Agentic设计模式，如工具使用、RAG、可信赖AI Agent构建、规划和多Agent等。
+
 ## 微软《AI Agent设计模式与AutoGen（AI Agentic Design Patterns with AutoGen）》
-* **[AI Agents新手入门精通](https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autogen/?utm_source=www.turingpost.com&utm_medium=referral&utm_campaign=8-free-sources-to-master-building-ai-agents)** - 微软推出的《初学者AI Agent课程（AI Agents for Beginners - A Course）》，旨在教授从零开始构建AI Agent的基础知识。它提供了一个针对初学者的AI Agent课程，包含10节课，涵盖构建AI Agent的基础知识。 课程内容包括各种Agentic设计模式，如工具使用、RAG、可信赖AI Agent构建、规划和多Agent等。
+* **[AI Agentic Design Patterns with AutoGen](https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autogen/?utm_source=www.turingpost.com&utm_medium=referral&utm_campaign=8-free-sources-to-master-building-ai-agents)** - 微软推出的《初学者AI Agent课程（AI Agents for Beginners - A Course）》，旨在教授从零开始构建AI Agent的基础知识。它提供了一个针对初学者的AI Agent课程，包含10节课，涵盖构建AI Agent的基础知识。 课程内容包括各种Agentic设计模式，如工具使用、RAG、可信赖AI Agent构建、规划和多Agent等。
+## Hugging Face《AI Agents Course》
+* **[AI Agents Course](https://huggingface.co/learn/agents-course/en/unit0/introduction)** - Hugging Face推出了一个免费的AI Agents课程（AI Agents Course），旨在帮助学员从初学者成长为专家，掌握AI Agent的理解、使用和构建。课程涵盖理论、设计和实践，并教授使用流行的 Agent 库（例如smolagents、LangChain 和LlamaIndex）
 
 # 二、学习路线建议
 
