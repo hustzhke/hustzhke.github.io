@@ -6,51 +6,17 @@ redirect_from:
   - /about/
   - /about.html
 ---
-# 一、Agent学习参考资料
-## 《大模型应用开发 动手做AI Agent》
-* **[黄佳：动手做AI Agent](https://github.com/huangjia2019/ai-agents)** - 异步社区的大模型应用开发入门教程。
-## 《从零到手搓一个Agent：AI Agents新手入门精通》
-* **[从零到手搓一个Agent](https://cloud.tencent.com/developer/article/2487274)** - 腾讯开发者社区入门教程。
-## 《Agent从入门到项目实战！》
-* **[Agent保姆级教程](https://www.bilibili.com/video/BV1zH4y1F71H/?vd_source=45a298dcec13043038a9e006ee72dcb0)** - 【Agent保姆级教程】同济大佬12小时带你从入门到精通。
-## 微软《初学者AI Agent课程（AI Agents for Beginners - A Course）》
-* **[初学者AI Agent课程](https://github.com/microsoft/ai-agents-for-beginners/tree/main)** - 微软推出的《初学者AI Agent课程（AI Agents for Beginners - A Course）》，旨在教授从零开始构建AI Agent的基础知识。它提供了一个针对初学者的AI Agent课程，包含10节课，涵盖构建AI Agent的基础知识。 课程内容包括各种Agentic设计模式，如工具使用、RAG、可信赖AI Agent构建、规划和多Agent等。
-
-## 微软《AI Agent设计模式与AutoGen（AI Agentic Design Patterns with AutoGen）》
-* **[AI Agentic Design Patterns with AutoGen](https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autogen/?utm_source=www.turingpost.com&utm_medium=referral&utm_campaign=8-free-sources-to-master-building-ai-agents)** - 微软推出的旨在教授初学者如何使用AutoGen框架构建多Agent AI应用程序。课程内容包括Agents设计模式的实施，如反射、工具使用、规划和多Agent协作。。该课程由微软研究员Chi Wang和宾夕法尼亚州立大学助理教授Qingyun Wu教授，他们也是AutoGen的创建者。
-## Hugging Face《AI Agents Course》
-* **[AI Agents Course](https://huggingface.co/learn/agents-course/en/unit0/introduction)** - Hugging Face推出了一个免费的AI Agents课程（AI Agents Course），旨在帮助学员从初学者成长为专家，掌握AI Agent的理解、使用和构建。课程涵盖理论、设计和实践，并教授使用流行的 Agent 库（例如smolagents、LangChain 和LlamaIndex）
-
-# 二、学习路线建议
-
-## 基础阶段(2-3周)
-- 掌握Python基础和LLM原理
-- 学习LangChain/SmolAgent等框架
-- 完成天气查询/邮件发送等简单Agent开发
-
-## 进阶阶段(4-6周)
-- 实现多Agent协作系统
-- 集成RAG/规划等高级能力
-- 参与Hugging Face社区挑战赛
-
-## 实战阶段(持续)
-- 选择电商/医疗等垂直领域深耕
-- 构建具备自主决策能力的Agent
-- 关注AutoGen等最新框架动态
-
-
 
 
 ## AI聊天助手与搜索引擎
 
-* **[ChatGPT](https://chat.openai.com/)** - OpenAI开发，回答问题、写作、编程。能做优秀的推理，只是推理需要收费。
+* **[ChatGPT](https://chat.openai.com/)** - OpenAI开发，专注于回答问题、写作和编程。它具备优秀的推理能力，只是某些高级推理功能需要收费使用。
 
 * **[Google Gemini](https://gemini.google.com/)** - Google推出支持多模态输入,可以理解文本、图像、音频等。
 
-* **[Perplexity](https://www.perplexity.ai/)** - 智能搜索引擎。能够直接回答用户问题,并提供信息来源。
-* **[MindSearch](https://mindsearch.openxlab.org.cn/)** - 中国版本的perplexity中科大与上海人工智能实验室共同开发的开源AI搜索引擎框架
-
+* **[Grok](https://x.ai/grok)** - 由 xAI 开发，旨在提供有帮助且真实的答案，特别擅长从外部视角解答关于人类和宇宙的问题。
 * **[Claude.ai](https://claude.ai/)** - Anthropic公司开发的AI助手官方网站。支持复杂对话、文档分析、代码编写等功能。目前仅对部分地区开放,需要注册账号使用。特点是准确度高、安全性强。
+* **[Monica](https://monica.im/home)** -合了主流AI工具的第三方平台，提供免费和付费计划，支持多种功能，如回答问题、多模态 PPT 思维导图建议等。
 
 * **[POE](https://poe.com/)** - 集合了主流AI工具的第三方平台。除了Claude外还可以使用多个AI模型。提供免费和付费计划,界面友好易用。
 * **[DeepSeek Chat](https://chat.deepseek.com/)** - 当红国内AI，深度求索，首次开源推理大模型。
@@ -64,6 +30,8 @@ redirect_from:
 * **[通义千问](https://tongyi.aliyun.com/)** - 阿里达摩院推出的大语言模型。具备强大的中文理解和生成能力,支持对话、写作、编程等多种任务。可通过网页版和API接口使用,通用阿里云账号。
 
 
+* **[Perplexity](https://www.perplexity.ai/)** - 智能搜索引擎。能够直接回答用户问题,并提供信息来源。
+* **[MindSearch](https://mindsearch.openxlab.org.cn/)** - 中国版本的perplexity中科大与上海人工智能实验室共同开发的开源AI搜索引擎框架
 
 * **[Bolt.new](https://bolt.new/)** - 全栈Web应用开发和部署平台。
 * **[Bolt.DIY](https://github.com/stackblitz-labs/bolt.diy)** - 开源版 Bolt.new，自助做个Bolt.new，自己接廉价版deepseek以及各种LLM（多谢Charles刘端阳提供建议）。
