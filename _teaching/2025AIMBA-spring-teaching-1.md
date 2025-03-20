@@ -8,6 +8,7 @@ date: 2025-01-14
 instructor: "周科"
 location: "工管院302教室"
 ---
+MBA课程 人工智能课程
 
 ## 课程简介
 
