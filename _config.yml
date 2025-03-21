@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "zhou ke / Prof."
+title                    : "Zhou Ke / 周科"
 title_separator          : "-"
 name                     : &name "Zhou Ke"
 description              : &description "personal description"
