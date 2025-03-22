@@ -9,20 +9,20 @@ main:
 
   
 
-  - title: "Teaching"
+  - title: "教学 Teaching"
     url: /teaching/    
     
 
         
-  - title: "Blog Posts"
+  - title: "播客 Blog Posts"
     url: /year-archive/ 
 
 
-  - title: "Publications"
+  - title: "论文发表 Publications"
     url: /publications/
     
-  - title: "CV"
+  - title: "简历 CV"
     url: /cv/
     
-  - title: "Guide"
+  - title: "网站指南 Guide"
     url: /markdown/
