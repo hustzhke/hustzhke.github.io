@@ -75,6 +75,7 @@ redirect_from:
 * **[AI学习路径指南:Waytoagi](https://waytoagi.feishu.cn/wiki/QPe5w5g7UisbEkkow8XcDmOpn8e)** - 系统化的AIGC入门学习资源。
 * **[Anthropic官方提示词库文档](https://docs.anthropic.com/zh-CN/prompt-library/library)** - Anthropic官方提供的AI提示词资源库。
 * **[费曼学习法教学模式](https://www.hhsblog.me/posts/feynman-method-prompt/)** - 基于三角色互动的教学框架。由课程管理者、学生和智慧师傅共同完成知识传递和验证。
+* **[（每日穿搭）图像](https://github.com/zho-zho-zho/OOTDGen)** - 开源图像生成模型，专注于生成高质量名人OOTD（每日穿搭）图像，风格多样，细节逼真，适合时尚设计灵感：【https://github.com/jamez-bondos/awesome-gpt4o-images?tab=readme-ov-file#%E6%A1%88%E4%BE%8B-29%E5%90%8D%E7%94%BB%E4%BA%BA%E7%89%A9-ootd-by-zho_zho_zho】
 ## 小工具
 * **[Suno](https://suno.com)** - AI一站式音乐创作平台，AI辅助音乐创作。
 * **[YuE (乐)](https://github.com/multimodal-art-projection/YuE)** - 开源全长音乐生成基础模型， 能生成最长5分钟的音乐，结构比较连贯，有旋律、有乐器伴奏
