@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent 不是工具调用：小世界说明书课堂课件</title>
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --paper: #fbf7f0;
+      --ink: #1f1d1a;
+      --muted: #665f55;
+      --accent: #aa3d2f;
+      --accent-soft: #ead6cc;
+      --deep: #2e4a42;
+      --gold: #c5923b;
+      --line: rgba(31, 29, 26, 0.12);
+      --shadow: 0 22px 60px rgba(31, 29, 26, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background:
+        radial-gradient(circle at top right, rgba(197, 146, 59, 0.12), transparent 26%),
+        radial-gradient(circle at bottom left, rgba(170, 61, 47, 0.10), transparent 28%),
+        linear-gradient(180deg, #f6f2ea 0%, #eee5d8 100%);
+      color: var(--ink);
+      font-family: "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif;
+    }
+
+    body {
+      overflow: hidden;
+    }
+
+    .app {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      padding: 24px;
+    }
+
+    .deck {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 28px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.38)),
+        var(--paper);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .slides {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding: 54px 70px 58px;
+      opacity: 0;
+      transform: translateX(48px) scale(0.985);
+      pointer-events: none;
+      transition: opacity 300ms ease, transform 300ms ease;
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .slide::before,
+    .slide::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    .slide::before {
+      width: 220px;
+      height: 220px;
+      top: -80px;
+      right: -40px;
+      background: radial-gradient(circle, rgba(170, 61, 47, 0.14), transparent 70%);
+    }
+
+    .slide::after {
+      width: 260px;
+      height: 260px;
+      left: -120px;
+      bottom: -120px;
+      background: radial-gradient(circle, rgba(46, 74, 66, 0.12), transparent 70%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-family: "Segoe UI", "PingFang SC", sans-serif;
+      font-weight: 700;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    ul {
+      margin: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 54px;
+      line-height: 1.15;
+      max-width: 920px;
+      margin-top: 18px;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 40px;
+      line-height: 1.2;
+      margin-top: 16px;
+      margin-bottom: 18px;
+      max-width: 920px;
+    }
+
+    .lead {
+      margin-top: 18px;
+      max-width: 860px;
+      font-size: 24px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .content {
+      align-self: center;
+      display: grid;
+      gap: 24px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 26px;
+      align-items: start;
+    }
+
+    .three-col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card,
+    .quote,
+    .metric,
+    .flow-step {
+      background: rgba(255, 255, 255, 0.64);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 22px 24px;
+      box-shadow: 0 12px 32px rgba(31, 29, 26, 0.05);
+    }
+
+    .card h3,
+    .flow-step h3,
+    .metric h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .card p,
+    .quote p,
+    .metric p,
+    .flow-step p {
+      font-size: 20px;
+      line-height: 1.65;
+      color: #4e483f;
+    }
+
+    .quote {
+      border-left: 6px solid var(--accent);
+      background: linear-gradient(180deg, rgba(234, 214, 204, 0.7), rgba(255, 255, 255, 0.6));
+    }
+
+    .quote p {
+      font-size: 26px;
+      line-height: 1.7;
+      color: #342f2a;
+    }
+
+    ul {
+      padding-left: 26px;
+      display: grid;
+      gap: 14px;
+      max-width: 980px;
+      font-size: 24px;
+      line-height: 1.6;
+      color: #3f3a34;
+    }
+
+    li::marker {
+      color: var(--accent);
+    }
+
+    .big-number {
+      font-family: "Segoe UI", "PingFang SC", sans-serif;
+      font-size: 74px;
+      line-height: 1;
+      color: var(--deep);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .metric p {
+      font-size: 18px;
+    }
+
+    .logic-strip {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .flow-step {
+      position: relative;
+      min-height: 170px;
+    }
+
+    .flow-step::after {
+      content: "→";
+      position: absolute;
+      right: -14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gold);
+      font-size: 24px;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    .flow-step:last-child::after {
+      display: none;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 12px;
+      margin-right: 10px;
+      margin-bottom: 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-family: "Segoe UI", "PingFang SC", sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.03em;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: "Segoe UI", "PingFang SC", sans-serif;
+      color: var(--muted);
+      font-size: 15px;
+      letter-spacing: 0.02em;
+    }
+
+    .footer strong {
+      color: var(--deep);
+    }
+
+    .controls {
+      position: absolute;
+      right: 24px;
+      bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 5;
+    }
+
+    .controls button {
+      border: none;
+      border-radius: 999px;
+      padding: 12px 16px;
+      background: rgba(31, 29, 26, 0.84);
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform 160ms ease, background 160ms ease;
+    }
+
+    .controls button:hover {
+      transform: translateY(-1px);
+      background: #000;
+    }
+
+    .progress {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 5px;
+      background: rgba(31, 29, 26, 0.08);
+      z-index: 4;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--gold));
+      transition: width 220ms ease;
+    }
+
+    .cover-layout {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .cover-panel {
+      position: relative;
+      padding: 28px;
+      min-height: 400px;
+      border-radius: 32px;
+      background:
+        linear-gradient(160deg, rgba(46, 74, 66, 0.95), rgba(31, 29, 26, 0.92)),
+        #1f1d1a;
+      color: #f9f3eb;
+      overflow: hidden;
+    }
+
+    .cover-panel::before {
+      content: "";
+      position: absolute;
+      inset: auto -70px -120px auto;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(197, 146, 59, 0.38), transparent 70%);
+    }
+
+    .cover-panel h3 {
+      font-size: 28px;
+      margin-bottom: 18px;
+    }
+
+    .cover-panel p {
+      font-size: 22px;
+      line-height: 1.7;
+      color: rgba(249, 243, 235, 0.82);
+    }
+
+    .cover-meta {
+      display: grid;
+      gap: 12px;
+      font-size: 16px;
+      color: rgba(249, 243, 235, 0.72);
+      margin-top: 32px;
+      font-family: "Segoe UI", "PingFang SC", sans-serif;
+    }
+
+    .checklist {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px 18px;
+    }
+
+    .checkitem {
+      padding: 16px 18px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.7);
+      font-size: 20px;
+      line-height: 1.55;
+    }
+
+    .checkitem strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--deep);
+      font-size: 18px;
+      font-family: "Segoe UI", "PingFang SC", sans-serif;
+    }
+
+    .discussion {
+      display: grid;
+      gap: 16px;
+    }
+
+    .discussion .card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(244, 239, 230, 0.8));
+    }
+
+    .source {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--muted);
+      max-width: 960px;
+    }
+
+    @media (max-width: 1100px) {
+      .slide {
+        padding: 34px 28px 50px;
+      }
+
+      .cover-layout,
+      .two-col,
+      .three-col,
+      .metric-grid,
+      .logic-strip,
+      .checklist {
+        grid-template-columns: 1fr;
+      }
+
+      body {
+        overflow: auto;
+      }
+
+      .app,
+      .deck,
+      .slides,
+      .slide {
+        height: auto;
+        min-height: 100vh;
+      }
+
+      .slide {
+        position: relative;
+        opacity: 1;
+        transform: none;
+        display: none;
+      }
+
+      .slide.active {
+        display: grid;
+      }
+
+      .flow-step::after {
+        display: none;
+      }
+    }
+
+    @media print {
+      body {
+        overflow: visible;
+        background: #fff;
+      }
+
+      .app {
+        padding: 0;
+      }
+
+      .deck {
+        border: none;
+        box-shadow: none;
+      }
+
+      .slide {
+        position: relative;
+        page-break-after: always;
+        opacity: 1 !important;
+        transform: none !important;
+        min-height: 100vh;
+      }
+
+      .controls,
+      .progress {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="deck">
+      <div class="slides">
+        <section class="slide active">
+          <div>
+            <div class="eyebrow">Agent Teaching Deck</div>
+          </div>
+          <div class="content cover-layout">
+            <div>
+              <div class="tag">课堂主题</div>
+              <div class="tag">Agent</div>
+              <div class="tag">世界模型</div>
+              <h1>会用 Agent 的人，不只是 Prompt 高手<br>而是能把自己的“小世界”说清楚的人</h1>
+              <p class="lead">基于苏煜关于 OpenClaw Moment、世界模型与知识工作重估的访谈观点，重组为一套适合课堂讲授的 HTML 幻灯片。</p>
+            </div>
+            <div class="cover-panel">
+              <h3>这节课要回答</h3>
+              <p>为什么“提示词 + 工具调用”还不够？什么叫小世界？为什么专家更可靠？软件为什么会从工具走向劳动交付？普通人又该如何准备？</p>
+              <div class="cover-meta">
+                <div>适用场景：AI 素养课 / Agent 入门课 / 管理与技术交叉课程</div>
+                <div>建议时长：20-30 分钟</div>
+                <div>讲授方式：概念讲解 + 案例讨论 + 课堂反思</div>
+              </div>
+            </div>
+          </div>
+          <div class="footer">
+            <span><strong>Slide 1</strong> / 11</span>
+            <span>按方向键切换，按 F 可全屏演示</span>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div>
+            <div class="eyebrow">01 核心判断</div>
+            <h2>这篇文章最重要的一句话</h2>
+          </div>
+          <div class="content">
+            <div class="quote">
+              <p>Agent 的门槛不是“能不能动手”，而是“知不知道自己正在什么样的工作世界里动手”。</p>
+            </div>
+            <div class="two-col">
+              <div class="card">
+                <h3>常见误解</h3>
+                <p>把 Agent 理解成“提示词 + 工具调用 + 工作流外壳”，等于把它看成更聪明的自动化脚本。</p>
+              </div>
+              <div class="card">
+                <h3>作者的反驳</h3>
+                <p>工具调用只是行动通道。真正决定能否托付的，是它是否理解对象、流程、权限、例外与后果。</p>
+              </div>
+            </div>
+            <ul>
+              <li>Prompt 可以让模型听懂命令，但不能自动补上业务边界。</li>
+              <li>工具可以让模型执行动作，但不能保证它知道动作之后会发生什么。</li>
+              <li>真正的差距，来自是否形成了具体场景里的世界模型。</li>
+            </ul>
+          </div>
+          <div class="footer">
+            <span><strong>Slide 2</strong> / 11</span>
+            <span>从“会操作”过渡到“可托付”</span>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div>
+            <div class="eyebrow">02 OpenClaw Moment</div>
+            <h2>为什么现在要重新谈 Agent？</h2>
+          </div>
+          <div class="content">
+            <div class="metric-grid">
+              <div class="metric">
+                <div class="big-number">1</div>
+                <h3>能力成熟</h3>
+                <p>底层模型、代码能力、电脑使用能力已经足够让人“真的试起来”。</p>
+              </div>
+              <div class="metric">
+                <div class="big-number">2</div>
+                <h3>门槛降低</h3>
+                <p>更多人可以直接上手，而不是只停留在研究论文或实验室演示。</p>
+              </div>
+              <div class="metric">
+                <div class="big-number">3</div>
+                <h3>权限扩大</h3>
+                <p>Agent 开始接触文件、软件、界面、流程与组织系统。</p>
+              </div>
+              <div class="metric">
+                <div class="big-number">4</div>
+                <h3>扩散加速</h3>
+                <p>开源与模仿让“大家都能试”的速度大幅提升。</p>
+              </div>
+            </div>
+            <div class="quote">
+              <p>OpenClaw 的意义，不一定是发明了新算法，而是让 Agent 进入真实任务现场这件事，第一次大规模变得可见。</p>
+            </div>
+          </div>
+          <div class="footer">
+            <span><strong>Slide 3</strong> / 11</span>
+            <span>像 ChatGPT Moment 一样，是“可见性拐点”</span>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div>
+            <div class="eyebrow">03 误解拆解</div>
+            <h2>为什么“提示词 + 工具调用”不够？</h2>
+          </div>
+          <div class="content two-col">
+            <div>
+              <div class="card">
+                <h3>工具调用解决什么</h3>
+                <p>让模型能搜索、点按钮、读文件、改代码、发请求，本质上是在打开动作出口。</p>
+              </div>
+              <div class="card" style="margin-top: 18px;">
+                <h3>它没有解决什么</h3>
+                <p>没有解决任务边界、组织责任、异常情况、错误后果、何时该停、何时该问人。</p>
+              </div>
+            </div>
+            <div>
+              <div class="quote">
+                <p>一个人会按按钮，不代表他理解这份工作；一个 Agent 会调用工具，也不代表它理解工具所在的世界。</p>
+              </div>
+              <ul style="margin-top: 18px;">
+                <li>早期 AutoGPT 很火，但稳定做成的真实任务很少。</li>
+                <li>原因不只是模型不够强，而是缺少工作世界里的判断标准。</li>
+                <li>“像 Agent 的外壳”不等于“可交付的 Agent”。</li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer">
+            <span><strong>Slide 4</strong> / 11</span>
+            <span>能执行，不等于能负责</span>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div>
+            <div class="eyebrow">04 小世界</div>
+            <h2>Agent 真正要学的是什么？</h2>
+          </div>
+          <div class="content">
+            <div class="three-col">
+              <div class="card">
+                <h3>对象</h3>
+                <p>有哪些文件、角色、系统、状态、记录、输入与输出。</p>
+              </div>
+              <div class="card">
+                <h3>规则</h3>
+                <p>流程怎么走，谁有权限，什么情况必须停下来，什么不能越权。</p>
+              </div>
+              <div class="card">
+                <h3>后果</h3>
+                <p>一个动作会影响谁，错了会损失什么，出了问题先救哪一块。</p>
+              </div>
+            </div>
+            <div class="quote">
+              <p>“小世界”不是背景材料，而是专家能力本身。一个岗位、一个行业、一个组织流程，都可能是一个小世界。</p>
+            </div>
+            <ul>
+              <li>新手和专家都能点同一个按钮，但脑子里的后果模型完全不同。</li>
+              <li>从实习生到老师傅，本质上就是逐步学会这个小世界。</li>
+              <li>Agent 要从演示变成生产力，也必须完成这一步。</li>
+            </ul>
+          </div>
+          <div class="footer">
+            <span><strong>Slide 5</strong> / 11</span>
+            <span>小世界 = 对象 + 规则 + 后果</span>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div>
+            <div class="eyebrow">05 世界模型</div>
+            <h2>为什么专家更可靠，而 Agent 常常卡在 60%-70%？</h2>
+          </div>
+          <div class="content">
+            <div class="logic-strip">
+              <div class="flow-step">
+                <h3>会操作</h3>
+                <p>知道怎么点、怎么调、怎么执行。</p>
+              </div>
+              <div class="flow-step">
+                <h3>懂流程</h3>
+                <p>知道真实任务不是按钮串联，而是有边界。</p>
+              </div>
+              <div class="flow-step">
+                <h3>懂权限</h3>
+                <p>知道哪些动作必须审批，哪些不能越级。</p>
+              </div>
+              <div class="flow-step">
+                <h3>懂例外</h3>
+                <p>知道标准流程何时失效，何时该人工接管。</p>
+              </div>
+              <div class="flow-step">
+                <h3>懂后果</h3>
+                <p>知道哪类错误代价大，先防什么风险。</p>
+              </div>
+              <div class="flow-step">
+                <h3>可托付</h3>
+                <p>稳定交付，而不是偶尔惊艳、偶尔翻车。</p>
+              </div>
+            </div>
+            <div class="quote">
+              <p>最麻烦的不是 Agent 完全不会，而是“看起来很聪明，但关键 30%-40% 的地方常常摔跤”。</p>
+            </div>
+          </div>
+          <div class="footer">
+            <span><strong>Slide 6</strong> / 11</span>
+            <span>可靠性来自经验压缩，而不是每次临时推理</span>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div>
+            <div class="eyebrow">06 软件重估</div>
+            <h2>软件为什么会从“工具”走向“劳动交付”？</h2>
+          </div>
+          <div class="content two-col">
+            <div class="card">
+              <h3>过去的软件</h3>
+              <ul>
+                <li>卖按钮、字段、视图、流程。</li>
+                <li>用户自己学会使用，再把事情做完。</li>
+                <li>价值在“能不能用”。</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Agent 化的软件</h3>
+              <ul>
+                <li>用户要的不是按钮，而是事情被完成。</li>
+                <li>例如：线索被筛过、合同被初审、代码被改到可合并。</li>
+                <li>价值转向“能不能稳定交付”。</li>
+              </ul>
+            </div>
+            <div class="quote" style="grid-column: 1 / -1;">
+              <p>当软件开始交付劳动，知识工作的很多部分就会被重新定价。真正值得担心的，不是科幻风险，而是工作替代与价值分配。</p>
+            </div>
+          </div>
+          <div class="footer">
+            <span><strong>Slide 7</strong> / 11</span>
+            <span>从 SaaS 到 “结果即服务”</span>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div>
+            <div class="eyebrow">07 课堂重点</div>
+            <h2>比 Prompt 更重要的交付物：小世界说明书</h2>
+          </div>
+          <div class="content">
+            <div class="checklist">
+              <div class="checkitem"><strong>1. 对象</strong>有哪些实体、文件、角色、系统、状态？</div>
+              <div class="checkitem"><strong>2. 流程</strong>一件事从开始到完成的真实路径是什么？</div>
+              <div class="checkitem"><strong>3. 权限</strong>谁能决定？谁能审批？哪些动作不能随便做？</div>
+              <div class="checkitem"><strong>4. 例外</strong>哪些情况不能套标准流程？</div>
+              <div class="checkitem"><strong>5. 标准</strong>什么叫“做对了”？谁说了算？</div>
+              <div class="checkitem"><strong>6. 失败</strong>过去最常见的错误是什么？后果是什么？</div>
+              <div class="checkitem"><strong>7. 风险</strong>哪些任务必须人审？哪些信息不能交给 Agent？</div>
+              <div class="checkitem"><strong>8. 反馈</strong>做完以后靠什么持续校正和学习？</div>
+            </div>
+            <div class="quote">
+              <p>Prompt 是命令，小世界说明书是上下文。没有上下文，再漂亮的命令也像在陌生办公室里大声喊话。</p>
+            </div>
+          </div>
+          <div class="footer">
+            <span><strong>Slide 8</strong> / 11</span>
+            <span>这页可以直接拿来做课堂板书</span>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div>
+            <div class="eyebrow">08 应用判断</div>
+            <h2>哪些任务适合自动化，哪些值得做成专门化 Agent？</h2>
+          </div>
+          <div class="content three-col">
+            <div class="card">
+              <h3>适合脚本</h3>
+              <p>步骤清晰、风险低、例外少。重点是快，不一定需要“理解世界”。</p>
+            </div>
+            <div class="card">
+              <h3>适合人机协作 Agent</h3>
+              <p>需要调用工具，但失败后果有限。让 Agent 先做执行，人类抽查与收尾。</p>
+            </div>
+            <div class="card">
+              <h3>适合专门化 Agent</h3>
+              <p>权限复杂、隐性规则多、责任清晰、能沉淀数据与专家反馈，值得长期训练。</p>
+            </div>
+            <div class="quote" style="grid-column: 1 / -1;">
+              <p>不要一上来就问“提示词怎么写”，先判断这项工作到底是脚本问题、协作问题，还是世界模型问题。</p>
+            </div>
+          </div>
+          <div class="footer">
+            <span><strong>Slide 9</strong> / 11</span>
+            <span>适合引导学生做任务分类练习</span>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div>
+            <div class="eyebrow">09 讨论与反思</div>
+            <h2>课堂讨论题</h2>
+          </div>
+          <div class="content discussion">
+            <div class="card">
+              <h3>问题 1</h3>
+              <p>你所在的专业或岗位里，最典型的“小世界”是什么？它有哪些隐性规则？</p>
+            </div>
+            <div class="card">
+              <h3>问题 2</h3>
+              <p>有没有一项工作，看起来只是点几个按钮，但其实最难的是判断边界与后果？</p>
+            </div>
+            <div class="card">
+              <h3>问题 3</h3>
+              <p>如果要把你的一项工作教给 Agent，你最先补写的会是流程、权限，还是失败案例？为什么？</p>
+            </div>
+            <div class="card">
+              <h3>问题 4</h3>
+              <p>当软件开始“交付劳动”，组织会如何重新定义岗位、绩效与责任？</p>
+            </div>
+          </div>
+          <div class="footer">
+            <span><strong>Slide 10</strong> / 11</span>
+            <span>建议安排 5-10 分钟分组讨论</span>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div>
+            <div class="eyebrow">10 收束</div>
+            <h2>一句话总结</h2>
+          </div>
+          <div class="content">
+            <div class="quote">
+              <p>未来最会用 Agent 的人，不一定是最会写 Prompt 的人，而是最能把自己的工作世界结构化、边界化、可校正化的人。</p>
+            </div>
+            <ul>
+              <li>OpenClaw Moment 让 Agent 进入真实任务现场这件事变得可见。</li>
+              <li>Agent 的核心挑战从“动作能力”转向“世界理解”。</li>
+              <li>谁能把小世界说清楚，谁就更有机会把经验沉淀成新的生产力。</li>
+            </ul>
+            <p class="source">素材来源：根据微信文章《斯隆奖得主青年学者苏煜谈Agent：会用的人，不是Prompt高手，而是能把自己的工作小世界说清楚的人》整理重构，原文基于张小珺《商业访谈录》EP139 观点展开。</p>
+          </div>
+          <div class="footer">
+            <span><strong>Slide 11</strong> / 11</span>
+            <span>可继续扩展为案例课或工作坊</span>
+          </div>
+        </section>
+      </div>
+
+      <div class="controls">
+        <button type="button" id="prevBtn">上一页</button>
+        <button type="button" id="nextBtn">下一页</button>
+      </div>
+      <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll(".slide"));
+    const progressBar = document.getElementById("progressBar");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    let current = 0;
+
+    function renderSlide(index) {
+      current = Math.max(0, Math.min(index, slides.length - 1));
+      slides.forEach((slide, i) => slide.classList.toggle("active", i === current));
+      progressBar.style.width = `${((current + 1) / slides.length) * 100}%`;
+      document.title = `Agent 课堂课件 (${current + 1}/${slides.length})`;
+    }
+
+    function nextSlide() {
+      renderSlide(current + 1);
+    }
+
+    function prevSlide() {
+      renderSlide(current - 1);
+    }
+
+    prevBtn.addEventListener("click", prevSlide);
+    nextBtn.addEventListener("click", nextSlide);
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight" || event.key === "PageDown" || event.key === " ") {
+        event.preventDefault();
+        nextSlide();
+      }
+      if (event.key === "ArrowLeft" || event.key === "PageUp") {
+        event.preventDefault();
+        prevSlide();
+      }
+      if (event.key.toLowerCase() === "f") {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen?.();
+        } else {
+          document.exitFullscreen?.();
+        }
+      }
+      if (event.key === "Home") {
+        renderSlide(0);
+      }
+      if (event.key === "End") {
+        renderSlide(slides.length - 1);
+      }
+    });
+
+    renderSlide(0);
+  </script>
+</body>
+</html>
