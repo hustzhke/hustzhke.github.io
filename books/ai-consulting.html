@@ -3,865 +3,1500 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI+咨询（含IT审计、信息系统审计） — 写作仪表盘</title>
+<title>AI+咨询（含IT审计、信息系统审计） — 写作进度</title>
 <style>
-:root{--paper:#faf7f2;--ink:#1c1917;--muted:#57534e;--soft:#78716c;--line:rgba(28,25,23,0.10);--accent:#b5523a;--radius:14px;--font-sans:'Geist','PingFang SC','Microsoft YaHei',system-ui,sans-serif;}
+:root{--paper:#faf7f2;--ink:#1c1917;--muted:#57534e;--soft:#78716c;--line:rgba(28,25,23,0.10);--accent:#b5523a;--radius:16px;--font-sans:'Geist','PingFang SC','Microsoft YaHei',system-ui,sans-serif;}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font-sans);background:var(--paper);color:var(--ink);line-height:1.6;padding:2rem 1.5rem;max-width:1200px;margin:0 auto}
-header{margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--line)}
+body{font-family:var(--font-sans);background:var(--paper);color:var(--ink);line-height:1.6;padding:2.5rem 1.5rem;max-width:900px;margin:0 auto}
+header{margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--line)}
 .eyebrow{font-size:0.72rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--soft);margin-bottom:0.4rem}
-h1{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:600;letter-spacing:-0.02em;margin-bottom:0.6rem}
-.desc{color:var(--muted);font-size:0.95rem;max-width:640px}
-.stats{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem}
-.stat-badge{display:inline-flex;align-items:center;gap:0.3rem;padding:0.35rem 0.7rem;border-radius:999px;font-size:0.8rem;font-weight:500;letter-spacing:0.02em}
-.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-bottom:2rem}
-.summary-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.2rem;text-align:center}
-.summary-card .num{font-size:2rem;font-weight:700;color:var(--accent);line-height:1}
-.summary-card .label{font-size:0.8rem;color:var(--soft);margin-top:0.4rem;letter-spacing:0.04em}
-.file-section{margin-bottom:2rem}
-.file-section h2{font-size:1.1rem;font-weight:600;margin-bottom:0.8rem;display:flex;align-items:center;gap:0.5rem}
-.file-section h2 .count{font-size:0.85rem;color:var(--soft);font-weight:400}
-.file-table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;font-size:0.88rem}
-.file-table th{background:rgba(28,25,23,0.03);padding:0.7rem 0.8rem;text-align:left;font-size:0.75rem;font-weight:500;color:var(--soft);letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid var(--line)}
-.file-table td{padding:0.6rem 0.8rem;border-bottom:1px solid rgba(28,25,23,0.06);vertical-align:middle}
-.file-table tr:hover td{background:rgba(181,82,58,0.03)}
-.file-icon{font-size:1rem;text-align:center}
-.file-name{font-weight:500;max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.file-path{color:var(--soft);font-size:0.82rem;max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.file-size,.file-date{color:var(--soft);font-size:0.82rem;font-variant-numeric:tabular-nums}
-.status-badge{display:inline-block;padding:0.2rem 0.5rem;border-radius:999px;font-size:0.75rem;font-weight:500;letter-spacing:0.04em;white-space:nowrap}
-.cover-placeholder{width:100%;max-width:320px;aspect-ratio:3/4;background:linear-gradient(145deg,#f2ede4,#e8e0d4);border:2px dashed var(--line);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;color:var(--soft);font-size:0.9rem;margin-bottom:1.5rem}
+h1{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:600;letter-spacing:-0.02em;margin-bottom:0.5rem;line-height:1.2}
+h2{font-size:1.1rem;font-weight:500;color:var(--muted);margin-bottom:1.2rem}
+.desc{color:var(--muted);font-size:1rem;max-width:680px;line-height:1.7;margin-bottom:1.5rem}
+.progress-bar{height:6px;background:var(--line);border-radius:999px;overflow:hidden;margin-bottom:2.5rem;max-width:400px}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),#d4856a);border-radius:999px;transition:width 1s ease}
+.progress-text{font-size:0.85rem;color:var(--soft);margin-top:0.4rem}
+.chapter-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.4rem 1.6rem;margin-bottom:1rem;transition:transform 0.2s ease,box-shadow 0.2s ease}
+.chapter-card:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(28,25,23,0.06)}
+.chapter-header{display:flex;align-items:center;gap:0.8rem;margin-bottom:0.6rem;flex-wrap:wrap}
+.chapter-num{font-family:'Geist Mono',monospace;font-size:0.85rem;font-weight:600;color:var(--soft);min-width:2rem}
+.chapter-title{font-size:1.15rem;font-weight:600;color:var(--ink);flex:1}
+.status-badge{display:inline-block;padding:0.25rem 0.7rem;border-radius:999px;font-size:0.75rem;font-weight:500;letter-spacing:0.04em;white-space:nowrap}
+.chapter-intro{color:var(--muted);font-size:0.92rem;line-height:1.6;margin-left:2.8rem}
+.empty-state{text-align:center;padding:3rem;color:var(--soft);font-size:1rem}
 footer{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--line);color:var(--soft);font-size:0.8rem;text-align:center}
-@media(max-width:800px){.file-path{display:none}.file-name{max-width:180px}}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.back-link{display:inline-flex;align-items:center;gap:0.4rem;margin-bottom:1.5rem;color:var(--soft);font-size:0.9rem}
+.back-link:hover{color:var(--ink)}
+@media(max-width:600px){.chapter-intro{margin-left:0;margin-top:0.5rem}.chapter-header{flex-direction:column;align-items:flex-start;gap:0.4rem}}
 </style>
 </head>
 <body>
+<a href="/teaching/" class="back-link">← 返回教学页面</a>
 <header>
-  <div class="eyebrow">Writing Dashboard · 本地写作仪表盘</div>
+  <div class="eyebrow">Writing in Progress</div>
   <h1>AI+咨询（含IT审计、信息系统审计）</h1>
-  <p class="desc">本项目共 97 个文件。以下列出各章节与素材的当前状态，方便追踪写作进度。</p>
-  <div class="stats"><span class="stat-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定 87</span> <span class="stat-badge" style="color:#78716c;background:rgba(120,113,108,0.08)">草稿 5</span> <span class="stat-badge" style="color:#3f7d5a;background:rgba(63,125,90,0.08)">定稿 4</span> <span class="stat-badge" style="color:#5d8fc7;background:rgba(93,143,199,0.08)">素材 1</span></div>
+  <h2>AI重构咨询业务与审计作业链</h2>
+  <p class="desc">面向管理者、咨询顾问、审计人员的实践型教材，回答AI如何重构咨询业务、进入IT审计作业链、设计可落地的转型路线。</p>
+  <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+  <div class="progress-text">写作进度：0/181 章已定稿 (0%)</div>
 </header>
-<div class="summary">
-  <div class="summary-card"><div class="num">97</div><div class="label">总文件数</div></div>
-  <div class="summary-card"><div class="num">4</div><div class="label">定稿</div></div>
-  <div class="summary-card"><div class="num">0</div><div class="label">待修订</div></div>
-  <div class="summary-card"><div class="num">5</div><div class="label">草稿</div></div>
-  <div class="summary-card"><div class="num">2</div><div class="label">章节/正文</div></div>
-  <div class="summary-card"><div class="num">36</div><div class="label">素材</div></div>
-</div>
-<section class="file-section">
-      <h2>📐 章节与正文 <span class="count">(2)</span></h2>
-      <table class="file-table">
-        <thead><tr>
-          <th style="width:30px"></th>
-          <th>文件名</th><th>路径</th>
-          <th style="width:80px">大小</th>
-          <th style="width:90px">修改日期</th>
-          <th style="width:70px">状态</th>
-        </tr></thead>
-        <tbody><tr>
-      <td class="file-icon">📐</td>
-      <td class="file-name" title="ai_business_v0.tex">ai_business_v0.tex</td>
-      <td class="file-path">ai_business_v0.tex</td>
-      <td class="file-size">15.8 KB</td>
-      <td class="file-date">2026-05-09</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📐</td>
-      <td class="file-name" title="AI咨询与IT审计教材初稿.tex">AI咨询与IT审计教材初稿.tex</td>
-      <td class="file-path">AI咨询与IT审计教材初稿.tex</td>
-      <td class="file-size">100.9 KB</td>
-      <td class="file-date">2026-05-19</td>
-      <td><span class="status-badge" style="color:#78716c;background:rgba(120,113,108,0.08)">草稿</span></td>
-    </tr></tbody>
-      </table>
-    </section>
-<section class="file-section">
-      <h2>🖼️ 素材与参考 <span class="count">(36)</span></h2>
-      <table class="file-table">
-        <thead><tr>
-          <th style="width:30px"></th>
-          <th>文件名</th><th>路径</th>
-          <th style="width:80px">大小</th>
-          <th style="width:90px">修改日期</th>
-          <th style="width:70px">状态</th>
-        </tr></thead>
-        <tbody><tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg1.png">bg1.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg1.png</td>
-      <td class="file-size">16.6 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg10.png">bg10.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg10.png</td>
-      <td class="file-size">975.0 B</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg12.png">bg12.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg12.png</td>
-      <td class="file-size">1.8 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg13.png">bg13.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg13.png</td>
-      <td class="file-size">95.0 B</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg15.png">bg15.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg15.png</td>
-      <td class="file-size">26.6 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg16.png">bg16.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg16.png</td>
-      <td class="file-size">944.0 B</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg19.png">bg19.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg19.png</td>
-      <td class="file-size">52.5 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg1a.png">bg1a.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg1a.png</td>
-      <td class="file-size">995.0 B</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg1d.png">bg1d.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg1d.png</td>
-      <td class="file-size">93.0 B</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg1f.png">bg1f.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg1f.png</td>
-      <td class="file-size">37.1 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg20.png">bg20.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg20.png</td>
-      <td class="file-size">897.0 B</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg21.png">bg21.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg21.png</td>
-      <td class="file-size">33.1 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg22.png">bg22.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg22.png</td>
-      <td class="file-size">3.3 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg23.png">bg23.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg23.png</td>
-      <td class="file-size">851.0 B</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg24.png">bg24.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg24.png</td>
-      <td class="file-size">16.6 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg3.png">bg3.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg3.png</td>
-      <td class="file-size">39.1 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg4.png">bg4.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg4.png</td>
-      <td class="file-size">876.0 B</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg5.png">bg5.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg5.png</td>
-      <td class="file-size">26.2 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg6.png">bg6.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg6.png</td>
-      <td class="file-size">1.8 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg8.png">bg8.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg8.png</td>
-      <td class="file-size">39.0 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg9.png">bg9.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bg9.png</td>
-      <td class="file-size">858.0 B</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bga.png">bga.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bga.png</td>
-      <td class="file-size">218.0 B</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bgb.png">bgb.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bgb.png</td>
-      <td class="file-size">7.5 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bgf.png">bgf.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\bgf.png</td>
-      <td class="file-size">50.2 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\pdf2htmlEX-64x64.png">pdf2htmlEX-64x64.png</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\pdf2htmlEX-64x64.png</td>
-      <td class="file-size">14.3 KB</td>
-      <td class="file-date">2026-05-16</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📑</td>
-      <td class="file-name" title="AI咨询与IT审计教材初稿.pdf">AI咨询与IT审计教材初稿.pdf</td>
-      <td class="file-path">AI咨询与IT审计教材初稿.pdf</td>
-      <td class="file-size">378.6 KB</td>
-      <td class="file-date">2026-05-19</td>
-      <td><span class="status-badge" style="color:#78716c;background:rgba(120,113,108,0.08)">草稿</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\fig_sec01_ai_consulting_market.png">fig_sec01_ai_consulting_market.png</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\fig_sec01_ai_consulting_market.png</td>
-      <td class="file-size">119.2 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\fig_sec05_market_comparison.png">fig_sec05_market_comparison.png</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\fig_sec05_market_comparison.png</td>
-      <td class="file-size">168.8 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\fig_sec06_gap_analysis.png">fig_sec06_gap_analysis.png</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\fig_sec06_gap_analysis.png</td>
-      <td class="file-size">118.4 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\fig_sec08_gantt_chart.png">fig_sec08_gantt_chart.png</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\fig_sec08_gantt_chart.png</td>
-      <td class="file-size">573.6 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\fig3_1_model_comparison.png">fig3_1_model_comparison.png</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\fig3_1_model_comparison.png</td>
-      <td class="file-size">151.9 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\fig4_1_continuous_vs_periodic_audit.png">fig4_1_continuous_vs_periodic_audit.png</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\fig4_1_continuous_vs_periodic_audit.png</td>
-      <td class="file-size">176.5 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\fig4_2_maturity_comparison.png">fig4_2_maturity_comparison.png</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\fig4_2_maturity_comparison.png</td>
-      <td class="file-size">174.4 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\sec02_product_comparison.png">sec02_product_comparison.png</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\sec02_product_comparison.png</td>
-      <td class="file-size">161.8 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\sec02_product_forms_radar.png">sec02_product_forms_radar.png</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\sec02_product_forms_radar.png</td>
-      <td class="file-size">245.9 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">🖼️</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\sec07_fig01_security_metrics.png">sec07_fig01_security_metrics.png</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\sec07_fig01_security_metrics.png</td>
-      <td class="file-size">123.4 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr></tbody>
-      </table>
-    </section>
-<section class="file-section">
-      <h2>📁 其他文件 <span class="count">(59)</span></h2>
-      <table class="file-table">
-        <thead><tr>
-          <th style="width:30px"></th>
-          <th>文件名</th><th>路径</th>
-          <th style="width:80px">大小</th>
-          <th style="width:90px">修改日期</th>
-          <th style="width:70px">状态</th>
-        </tr></thead>
-        <tbody><tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="《创始人手册：打造 AI 原生初创公司》.txt">《创始人手册：打造 AI 原生初创公司》.txt</td>
-      <td class="file-path">《创始人手册：打造 AI 原生初创公司》.txt</td>
-      <td class="file-size">75.2 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\814e890ba11d7f54c90bad6133db86ac.html">814e890ba11d7f54c90bad6133db86ac.html</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\814e890ba11d7f54c90bad6133db86ac.html</td>
-      <td class="file-size">395.1 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\compatibility.min.js">compatibility.min.js</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\compatibility.min.js</td>
-      <td class="file-size">844.0 B</td>
-      <td class="file-date">2026-05-16</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\f1.woff">f1.woff</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\f1.woff</td>
-      <td class="file-size">11.5 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\f10.woff">f10.woff</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\f10.woff</td>
-      <td class="file-size">6.2 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\f11.woff">f11.woff</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\f11.woff</td>
-      <td class="file-size">6.1 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\f2.woff">f2.woff</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\f2.woff</td>
-      <td class="file-size">11.0 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\f3.woff">f3.woff</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\f3.woff</td>
-      <td class="file-size">12.4 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\f4.woff">f4.woff</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\f4.woff</td>
-      <td class="file-size">11.2 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\f5.woff">f5.woff</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\f5.woff</td>
-      <td class="file-size">12.4 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\f6.woff">f6.woff</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\f6.woff</td>
-      <td class="file-size">9.5 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\f7.woff">f7.woff</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\f7.woff</td>
-      <td class="file-size">7.4 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\f8.woff">f8.woff</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\f8.woff</td>
-      <td class="file-size">10.6 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\f9.woff">f9.woff</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\f9.woff</td>
-      <td class="file-size">7.4 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\fa.woff">fa.woff</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\fa.woff</td>
-      <td class="file-size">8.8 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\fb.woff">fb.woff</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\fb.woff</td>
-      <td class="file-size">8.4 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\fc.woff">fc.woff</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\fc.woff</td>
-      <td class="file-size">1.3 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\fd.woff">fd.woff</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\fd.woff</td>
-      <td class="file-size">9.3 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\fe.woff">fe.woff</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\fe.woff</td>
-      <td class="file-size">6.9 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\ff.woff">ff.woff</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\ff.woff</td>
-      <td class="file-size">9.6 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\pdf2htmlEX.min.js">pdf2htmlEX.min.js</td>
-      <td class="file-path">69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3+(1)\pdf2htmlEX.min.js</td>
-      <td class="file-size">10.3 KB</td>
-      <td class="file-date">2026-05-16</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="可行性研究报告.docx">可行性研究报告.docx</td>
-      <td class="file-path">可行性研究报告.docx</td>
-      <td class="file-size">30.4 KB</td>
-      <td class="file-date">2026-05-18</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="天健咨询-AI赋能审计与咨询-周科_湖南大学.html">天健咨询-AI赋能审计与咨询-周科_湖南大学.html</td>
-      <td class="file-path">天健咨询-AI赋能审计与咨询-周科_湖南大学.html</td>
-      <td class="file-size">31.3 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="资料梳理_20250517.md">资料梳理_20250517.md</td>
-      <td class="file-path">资料梳理_20250517.md</td>
-      <td class="file-size">12.8 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#5d8fc7;background:rgba(93,143,199,0.08)">素材</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="AI咨询与IT审计教材策划案.md">AI咨询与IT审计教材策划案.md</td>
-      <td class="file-path">AI咨询与IT审计教材策划案.md</td>
-      <td class="file-size">10.4 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="AI咨询与IT审计教材初稿.aux">AI咨询与IT审计教材初稿.aux</td>
-      <td class="file-path">AI咨询与IT审计教材初稿.aux</td>
-      <td class="file-size">10.7 KB</td>
-      <td class="file-date">2026-05-19</td>
-      <td><span class="status-badge" style="color:#78716c;background:rgba(120,113,108,0.08)">草稿</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="AI咨询与IT审计教材初稿.log">AI咨询与IT审计教材初稿.log</td>
-      <td class="file-path">AI咨询与IT审计教材初稿.log</td>
-      <td class="file-size">37.6 KB</td>
-      <td class="file-date">2026-05-19</td>
-      <td><span class="status-badge" style="color:#78716c;background:rgba(120,113,108,0.08)">草稿</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="AI咨询与IT审计教材初稿.out">AI咨询与IT审计教材初稿.out</td>
-      <td class="file-path">AI咨询与IT审计教材初稿.out</td>
-      <td class="file-size">8.7 KB</td>
-      <td class="file-date">2026-05-19</td>
-      <td><span class="status-badge" style="color:#78716c;background:rgba(120,113,108,0.08)">草稿</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="AI咨询与IT审计融合研究.md">AI咨询与IT审计融合研究.md</td>
-      <td class="file-path">AI咨询与IT审计融合研究.md</td>
-      <td class="file-size">53.3 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="AI咨询deep-research-report.md">AI咨询deep-research-report.md</td>
-      <td class="file-path">AI咨询deep-research-report.md</td>
-      <td class="file-size">22.8 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\AI融合咨询与IT审计赋能报告.docx">AI融合咨询与IT审计赋能报告.docx</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\AI融合咨询与IT审计赋能报告.docx</td>
-      <td class="file-size">2.2 MB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\AI咨询审计_sec00.md">AI咨询审计_sec00.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\AI咨询审计_sec00.md</td>
-      <td class="file-size">4.3 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\AI咨询审计_sec01.md">AI咨询审计_sec01.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\AI咨询审计_sec01.md</td>
-      <td class="file-size">17.6 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\AI咨询审计_sec02.md">AI咨询审计_sec02.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\AI咨询审计_sec02.md</td>
-      <td class="file-size">15.2 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\AI咨询审计_sec03.md">AI咨询审计_sec03.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\AI咨询审计_sec03.md</td>
-      <td class="file-size">23.5 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\AI咨询审计_sec04.md">AI咨询审计_sec04.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\AI咨询审计_sec04.md</td>
-      <td class="file-size">16.4 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\AI咨询审计_sec05.md">AI咨询审计_sec05.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\AI咨询审计_sec05.md</td>
-      <td class="file-size">17.0 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\AI咨询审计_sec06.md">AI咨询审计_sec06.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\AI咨询审计_sec06.md</td>
-      <td class="file-size">12.7 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\AI咨询审计_sec07.md">AI咨询审计_sec07.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\AI咨询审计_sec07.md</td>
-      <td class="file-size">17.0 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\AI咨询审计_sec08.md">AI咨询审计_sec08.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\AI咨询审计_sec08.md</td>
-      <td class="file-size">11.7 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\AI咨询审计_sec09.md">AI咨询审计_sec09.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\AI咨询审计_sec09.md</td>
-      <td class="file-size">6.1 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\AI咨询审计.agent.final.base.docx">AI咨询审计.agent.final.base.docx</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\AI咨询审计.agent.final.base.docx</td>
-      <td class="file-size">1.6 MB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#3f7d5a;background:rgba(63,125,90,0.08)">定稿</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\AI咨询审计.agent.final.converted.md">AI咨询审计.agent.final.converted.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\AI咨询审计.agent.final.converted.md</td>
-      <td class="file-size">140.7 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#3f7d5a;background:rgba(63,125,90,0.08)">定稿</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📄</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\AI咨询审计.agent.final.footnote.docx">AI咨询审计.agent.final.footnote.docx</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\AI咨询审计.agent.final.footnote.docx</td>
-      <td class="file-size">2.2 MB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#3f7d5a;background:rgba(63,125,90,0.08)">定稿</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\AI咨询审计.agent.final.md">AI咨询审计.agent.final.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\AI咨询审计.agent.final.md</td>
-      <td class="file-size">141.8 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#3f7d5a;background:rgba(63,125,90,0.08)">定稿</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\AI咨询审计.agent.outline.md">AI咨询审计.agent.outline.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\AI咨询审计.agent.outline.md</td>
-      <td class="file-size">9.8 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\plan.md">plan.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\plan.md</td>
-      <td class="file-size">1.4 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\research\AI咨询审计_cross_verification.md">AI咨询审计_cross_verification.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\research\AI咨询审计_cross_verification.md</td>
-      <td class="file-size">6.2 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\research\AI咨询审计_dim01.md">AI咨询审计_dim01.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\research\AI咨询审计_dim01.md</td>
-      <td class="file-size">30.0 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\research\AI咨询审计_dim02.md">AI咨询审计_dim02.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\research\AI咨询审计_dim02.md</td>
-      <td class="file-size">35.4 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\research\AI咨询审计_dim03.md">AI咨询审计_dim03.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\research\AI咨询审计_dim03.md</td>
-      <td class="file-size">38.6 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\research\AI咨询审计_dim04.md">AI咨询审计_dim04.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\research\AI咨询审计_dim04.md</td>
-      <td class="file-size">28.1 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\research\AI咨询审计_dim05.md">AI咨询审计_dim05.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\research\AI咨询审计_dim05.md</td>
-      <td class="file-size">33.9 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\research\AI咨询审计_dim06.md">AI咨询审计_dim06.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\research\AI咨询审计_dim06.md</td>
-      <td class="file-size">32.3 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\research\AI咨询审计_dim07.md">AI咨询审计_dim07.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\research\AI咨询审计_dim07.md</td>
-      <td class="file-size">32.9 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\research\AI咨询审计_dim08.md">AI咨询审计_dim08.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\research\AI咨询审计_dim08.md</td>
-      <td class="file-size">38.8 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\research\AI咨询审计_dim09.md">AI咨询审计_dim09.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\research\AI咨询审计_dim09.md</td>
-      <td class="file-size">25.2 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\research\AI咨询审计_dim10.md">AI咨询审计_dim10.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\research\AI咨询审计_dim10.md</td>
-      <td class="file-size">32.4 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr>
-<tr>
-      <td class="file-icon">📝</td>
-      <td class="file-name" title="Kimi_Agent_AI赋能咨询与审计\research\AI咨询审计_insight.md">AI咨询审计_insight.md</td>
-      <td class="file-path">Kimi_Agent_AI赋能咨询与审计\research\AI咨询审计_insight.md</td>
-      <td class="file-size">11.2 KB</td>
-      <td class="file-date">2026-05-17</td>
-      <td><span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span></td>
-    </tr></tbody>
-      </table>
-    </section>
-<footer>生成时间：2026-06-02 13:31 · 仅本地使用，不上传网络</footer>
+
+<main>
+  
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">01</span>
+        <span class="chapter-title">执行摘要与关键假设</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">02</span>
+        <span class="chapter-title">市场与案例研究</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">03</span>
+        <span class="chapter-title">可开发的智能化产品构想</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">04</span>
+        <span class="chapter-title">AI赋能IT审计的重点场景</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">05</span>
+        <span class="chapter-title">数据与技术架构</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">06</span>
+        <span class="chapter-title">合规伦理治理与风险</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">07</span>
+        <span class="chapter-title">实施路线图、成本与成功指标</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">08</span>
+        <span class="chapter-title">推荐结论与主要参考来源</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">09</span>
+        <span class="chapter-title">一、这本书适合怎么定位</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">10</span>
+        <span class="chapter-title">二、全书建议主线</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">11</span>
+        <span class="chapter-title">三、建议书名</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">12</span>
+        <span class="chapter-title">四、建议目录结构</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">13</span>
+        <span class="chapter-title">五、单章统一模板</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">14</span>
+        <span class="chapter-title">六、你现有材料怎么迁移进教材</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">15</span>
+        <span class="chapter-title">七、每章建议固定配置</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">16</span>
+        <span class="chapter-title">八、写作顺序建议</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">17</span>
+        <span class="chapter-title">九、可直接采用的前言表达</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">18</span>
+        <span class="chapter-title">十、下一步最值得做的三件事</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">19</span>
+        <span class="chapter-title">**一、 咨询项目与人工智能的深度融合：从智力雇佣向智能化产品演进**</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">20</span>
+        <span class="chapter-title">---</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">21</span>
+        <span class="chapter-title">---</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">22</span>
+        <span class="chapter-title">---</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">23</span>
+        <span class="chapter-title">---</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">24</span>
+        <span class="chapter-title">---</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">25</span>
+        <span class="chapter-title">执行摘要</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">26</span>
+        <span class="chapter-title">1.1 AI在管理咨询中的应用现状</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">27</span>
+        <span class="chapter-title">1.2 AI重构咨询价值链</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">28</span>
+        <span class="chapter-title">1.3 关键争议与挑战</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">29</span>
+        <span class="chapter-title">2. 咨询项目AI融合的产品化路径</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">30</span>
+        <span class="chapter-title">3. AI赋能IT审计：技术架构与核心能力</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">31</span>
+        <span class="chapter-title">4. AI在信息系统风险核查中的应用场景</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">32</span>
+        <span class="chapter-title">5. 智能审计产品市场格局与竞争分析</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">33</span>
+        <span class="chapter-title">6. 实施挑战与风险管控</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">34</span>
+        <span class="chapter-title">7. 数据安全、合规与监管要求</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">35</span>
+        <span class="chapter-title">8. 战略建议与行动计划</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">36</span>
+        <span class="chapter-title">9. 结论与展望</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">37</span>
+        <span class="chapter-title">执行摘要</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">38</span>
+        <span class="chapter-title">1.1 AI在管理咨询中的应用现状</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">39</span>
+        <span class="chapter-title">1.2 AI重构咨询价值链</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">40</span>
+        <span class="chapter-title">1.3 关键争议与挑战</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">41</span>
+        <span class="chapter-title">2. 咨询项目AI融合的产品化路径</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">42</span>
+        <span class="chapter-title">3. AI赋能IT审计：技术架构与核心能力</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">43</span>
+        <span class="chapter-title">4. AI在信息系统风险核查中的应用场景</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">44</span>
+        <span class="chapter-title">5. 智能审计产品市场格局与竞争分析</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">45</span>
+        <span class="chapter-title">6. 实施挑战与风险管控</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">46</span>
+        <span class="chapter-title">7. 数据安全、合规与监管要求</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">47</span>
+        <span class="chapter-title">8. 战略建议与行动计划</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">48</span>
+        <span class="chapter-title">9. 结论与展望</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">49</span>
+        <span class="chapter-title">执行摘要</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">50</span>
+        <span class="chapter-title">1. AI驱动咨询行业变革（~3500字，2张表格，1个案例）</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">51</span>
+        <span class="chapter-title">2. 咨询项目AI融合的产品化路径（~3500字，1张表格，2个案例）</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">52</span>
+        <span class="chapter-title">3. AI赋能IT审计：技术架构与核心能力（~4000字，2张表格，1个图表）</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">53</span>
+        <span class="chapter-title">4. AI在信息系统风险核查中的应用场景（~4000字，2张表格，2个案例）</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">54</span>
+        <span class="chapter-title">5. 智能审计产品市场格局与竞争分析（~3000字，2张表格，1个图表）</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">55</span>
+        <span class="chapter-title">6. 实施挑战与风险管控（~3500字，1张表格，1个案例）</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">56</span>
+        <span class="chapter-title">7. 数据安全、合规与监管要求（~3000字，1张表格）</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">57</span>
+        <span class="chapter-title">8. 战略建议与行动计划（~3500字，1张表格，1个图表）</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">58</span>
+        <span class="chapter-title">9. 结论与展望（~1500字）</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">59</span>
+        <span class="chapter-title">AI咨询审计_outline_references_raw.md</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">60</span>
+        <span class="chapter-title">Research Artifacts</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">61</span>
+        <span class="chapter-title">执行摘要</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">62</span>
+        <span class="chapter-title">1.1 AI在管理咨询中的应用现状</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">63</span>
+        <span class="chapter-title">1.2 AI重构咨询价值链</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">64</span>
+        <span class="chapter-title">1.3 关键争议与挑战</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">65</span>
+        <span class="chapter-title">2. 咨询项目AI融合的产品化路径</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">66</span>
+        <span class="chapter-title">3. AI赋能IT审计：技术架构与核心能力</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">67</span>
+        <span class="chapter-title">4. AI在信息系统风险核查中的应用场景</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">68</span>
+        <span class="chapter-title">5. 智能审计产品市场格局与竞争分析</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">69</span>
+        <span class="chapter-title">6. 实施挑战与风险管控</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">70</span>
+        <span class="chapter-title">7. 数据安全、合规与监管要求</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">71</span>
+        <span class="chapter-title">8. 战略建议与行动计划</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">72</span>
+        <span class="chapter-title">9. 结论与展望</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">73</span>
+        <span class="chapter-title">目标</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">74</span>
+        <span class="chapter-title">执行阶段</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">75</span>
+        <span class="chapter-title">技能加载</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">76</span>
+        <span class="chapter-title">验证概述</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">77</span>
+        <span class="chapter-title">一、High Confidence 发现（≥2个维度独立确认）</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">78</span>
+        <span class="chapter-title">二、Medium Confidence 发现（1个权威来源确认）</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">79</span>
+        <span class="chapter-title">三、Low Confidence 发现（弱来源或未验证）</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">80</span>
+        <span class="chapter-title">四、Conflict Zone 冲突区域</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">81</span>
+        <span class="chapter-title">五、数据一致性检查</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">82</span>
+        <span class="chapter-title">研究概述</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">83</span>
+        <span class="chapter-title">一、市场规模与宏观背景</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">84</span>
+        <span class="chapter-title">二、AI在管理咨询各环节的具体应用现状</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">85</span>
+        <span class="chapter-title">三、历史演变：从传统咨询到AI原生咨询</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">86</span>
+        <span class="chapter-title">四、主要参与者AI应用策略对比</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">87</span>
+        <span class="chapter-title">五、反对观点与争议</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">88</span>
+        <span class="chapter-title">六、价值链重构与收费模式变革</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">89</span>
+        <span class="chapter-title">七、关键发现总结</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">90</span>
+        <span class="chapter-title">八、数据来源与引用索引</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">91</span>
+        <span class="chapter-title">九、研究发现的方法论说明</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">92</span>
+        <span class="chapter-title">目录</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">93</span>
+        <span class="chapter-title">一、当前状态：咨询公司与AI融合的产品形态分类</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">94</span>
+        <span class="chapter-title">二、产品化路径：从咨询项目沉淀为标准化AI产品</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">95</span>
+        <span class="chapter-title">三、商业模式：订阅制、效果付费（RaaS）、软件许可等多种模式</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">96</span>
+        <span class="chapter-title">四、主要参与者：已经成功产品化的咨询公司和其产品案例</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">97</span>
+        <span class="chapter-title">五、反对观点与争议：咨询产品化的局限性</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">98</span>
+        <span class="chapter-title">六、综合发现与战略启示</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">99</span>
+        <span class="chapter-title">参考文献</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">100</span>
+        <span class="chapter-title">一、AI赋能IT审计的技术架构（当前状态）</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">101</span>
+        <span class="chapter-title">二、核心技术能力</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">102</span>
+        <span class="chapter-title">三、主要参与者与产品平台</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">103</span>
+        <span class="chapter-title">四、技术实现路径</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">104</span>
+        <span class="chapter-title">五、反对观点与争议</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">105</span>
+        <span class="chapter-title">六、总结与趋势展望</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">106</span>
+        <span class="chapter-title">参考来源索引</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">107</span>
+        <span class="chapter-title">一、市场现状：规模、增长率与细分赛道</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">108</span>
+        <span class="chapter-title">二、市场参与者及其产品布局</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">109</span>
+        <span class="chapter-title">三、产品功能对比</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">110</span>
+        <span class="chapter-title">四、定价模式分析</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">111</span>
+        <span class="chapter-title">五、竞争格局变化趋势</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">112</span>
+        <span class="chapter-title">六、关键发现汇总</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">113</span>
+        <span class="chapter-title">七、争议与风险</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">114</span>
+        <span class="chapter-title">参考资料索引</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">115</span>
+        <span class="chapter-title">一、AI在信息系统风险核查中的总体应用现状</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">116</span>
+        <span class="chapter-title">二、AI在网络安全审计中的应用</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">117</span>
+        <span class="chapter-title">三、AI在数据安全审计中的应用</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">118</span>
+        <span class="chapter-title">四、AI在系统控制审计中的应用</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">119</span>
+        <span class="chapter-title">五、AI在业务连续性审计与智能预警中的应用</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">120</span>
+        <span class="chapter-title">六、反对观点与争议</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">121</span>
+        <span class="chapter-title">七、综合分析与结论</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">122</span>
+        <span class="chapter-title">参考来源索引</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">123</span>
+        <span class="chapter-title">一、大语言模型在审计中的应用</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">124</span>
+        <span class="chapter-title">二、RAG（检索增强生成）技术</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">125</span>
+        <span class="chapter-title">三、知识图谱</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">126</span>
+        <span class="chapter-title">四、异常检测算法</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">127</span>
+        <span class="chapter-title">五、OCR+NLP非结构化数据处理</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">128</span>
+        <span class="chapter-title">六、技术集成挑战与部署</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">129</span>
+        <span class="chapter-title">七、RPA机器人在审计中的应用</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">130</span>
+        <span class="chapter-title">八、争议与反对观点</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">131</span>
+        <span class="chapter-title">九、总结与技术栈全景图</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">132</span>
+        <span class="chapter-title">研究概述</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">133</span>
+        <span class="chapter-title">一、当前状态：AI审计中的数据安全风险和隐私保护挑战</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">134</span>
+        <span class="chapter-title">二、中国监管框架对AI审计的要求</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">135</span>
+        <span class="chapter-title">三、行业标准与数据脱敏规范</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">136</span>
+        <span class="chapter-title">四、技术保障措施</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">137</span>
+        <span class="chapter-title">五、企业部署AI审计工具的合规最佳实践</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">138</span>
+        <span class="chapter-title">六、总结与关键发现</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">139</span>
+        <span class="chapter-title">目录</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">140</span>
+        <span class="chapter-title">1. 当前状态：AI审计实施的主要障碍</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">141</span>
+        <span class="chapter-title">2. 技术挑战</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">142</span>
+        <span class="chapter-title">3. 人才挑战</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">143</span>
+        <span class="chapter-title">4. 组织挑战</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">144</span>
+        <span class="chapter-title">5. 风险管控框架</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">145</span>
+        <span class="chapter-title">6. 主要发现汇总</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">146</span>
+        <span class="chapter-title">引用来源索引</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">147</span>
+        <span class="chapter-title">研究概述</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">148</span>
+        <span class="chapter-title">一、当前状态：中国与全球AI审计相关法律法规和标准体系</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">149</span>
+        <span class="chapter-title">二、审计准则演进：传统审计准则如何适应AI时代的变化</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">150</span>
+        <span class="chapter-title">三、监管动态：中注协、网信办、证监会等监管机构的最新政策要求</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">151</span>
+        <span class="chapter-title">四、国际比较：美国、欧盟、中国在AI审计监管方面的差异</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">152</span>
+        <span class="chapter-title">五、趋势预判：未来AI审计监管的发展方向</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">153</span>
+        <span class="chapter-title">六、研究结论与建议</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">154</span>
+        <span class="chapter-title">附录：引用来源汇总</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">155</span>
+        <span class="chapter-title">一、技术趋势：从Copilot到Agent的范式革命</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">156</span>
+        <span class="chapter-title">二、应用趋势：从事后审计到持续审计的范式转变</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">157</span>
+        <span class="chapter-title">三、人才趋势：未来审计人才的能力模型与培养路径</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">158</span>
+        <span class="chapter-title">四、产业生态：咨询+AI+审计的产业融合趋势</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">159</span>
+        <span class="chapter-title">五、战略建议：对咨询公司和审计机构的具体行动建议</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">160</span>
+        <span class="chapter-title">六、争议与反对观点</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">161</span>
+        <span class="chapter-title">七、综合战略建议框架</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">162</span>
+        <span class="chapter-title">引用来源汇总</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">163</span>
+        <span class="chapter-title">洞察概述</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">164</span>
+        <span class="chapter-title">洞察1: "产品化悖论" — 咨询公司的AI产品化面临结构性矛盾</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">165</span>
+        <span class="chapter-title">洞察2: "95-5法则" — AI项目成功的决定性因素不是技术而是组织适配</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">166</span>
+        <span class="chapter-title">洞察3: "合规即护城河" — 数据安全合规能力将成为AI审计产品的核心竞争壁垒</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">167</span>
+        <span class="chapter-title">洞察4: "人才断层" — AI审计面临三重人才断层，需要全新的能力模型</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">168</span>
+        <span class="chapter-title">洞察5: "全量审计革命" — AI正在触发审计范式从"抽样推断"到"全量验证"的根本性转变</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">169</span>
+        <span class="chapter-title">洞察6: "审计Agent生态" — 2025年是审计AI从工具向智能体跃迁的拐点年</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">170</span>
+        <span class="chapter-title">洞察7: "中国路径" — 中国AI审计市场可能走出不同于欧美的独特路径</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">171</span>
+        <span class="chapter-title">洞察8: "咨询即产品" — AI正在模糊咨询服务和软件产品的边界</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">172</span>
+        <span class="chapter-title">洞察9: "信任赤字" — AI审计面临的核心挑战不是技术而是信任</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">173</span>
+        <span class="chapter-title">洞察10: "标准窗口期" — 2025-2027年是AI审计标准制定的关键窗口期</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">174</span>
+        <span class="chapter-title">一、项目整体结构</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">175</span>
+        <span class="chapter-title">二、资料清单与内容映射</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">176</span>
+        <span class="chapter-title">三、内容重复与冲突检查</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">177</span>
+        <span class="chapter-title">四、缺失内容识别</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">178</span>
+        <span class="chapter-title">五、关键数据与案例索引</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">179</span>
+        <span class="chapter-title">六、写作状态总览</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">180</span>
+        <span class="chapter-title">七、下一步建议（优先级排序）</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-num">181</span>
+        <span class="chapter-title">八、可用技能（建议调用）</span>
+        <span class="status-badge" style="color:#a0a0a0;background:rgba(160,160,160,0.08)">待定</span>
+      </div>
+      
+    </div>
+</main>
+
+<footer>
+  本书尚在写作中，章节结构与内容可能随时调整。
+</footer>
 </body>
 </html>
