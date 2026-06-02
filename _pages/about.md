@@ -10,7 +10,7 @@ redirect_from:
 
 ## 周科 Zhou Ke
 
-湖南大学工商管理学院，管理科学系，副教授。
+湖南大学工商管理学院，金融与财务系，副教授。
 
 ### 研究方向
 
@@ -32,7 +32,7 @@ redirect_from:
 
 ### 联系方式
 
-- **Email**：hustzhke@gmail.com
+- **Email**：kzhou@hnu.edu.cn / hustzhke@gmail.com
 - **办公室**：湖南大学工商管理学院
 - **Google Scholar**：[Zhou Ke](https://scholar.google.com/citations?user=PS_CX0AAAAAJ)
 
