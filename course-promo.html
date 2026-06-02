@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>股东纠纷十大高频场景｜课程宣传页</title>
+  <style>
+    :root {
+      --bg: #f4ede2;
+      --bg-soft: #fbf7f1;
+      --surface: rgba(255, 252, 247, 0.86);
+      --surface-strong: #fffdf9;
+      --ink: #1b1d1f;
+      --muted: #5d625f;
+      --line: rgba(30, 42, 36, 0.14);
+      --olive: #1f4638;
+      --olive-2: #315f4c;
+      --rust: #a14f2e;
+      --gold: #c59f52;
+      --shadow: 0 18px 55px rgba(31, 42, 36, 0.12);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --container: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(197, 159, 82, 0.18), transparent 28%),
+        radial-gradient(circle at 100% 20%, rgba(161, 79, 46, 0.12), transparent 24%),
+        linear-gradient(180deg, #efe5d4 0%, #f6efe5 18%, #f4ede2 100%);
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(27, 29, 31, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(27, 29, 31, 0.03) 1px, transparent 1px);
+      background-size: 24px 24px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35), transparent 90%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--container));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 28px 0 0;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(31, 70, 56, 0.12);
+      background: rgba(255, 255, 255, 0.65);
+      color: var(--olive);
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero {
+      padding: 28px 0 40px;
+    }
+
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(31, 70, 56, 0.12);
+      border-radius: 38px;
+      background:
+        linear-gradient(135deg, rgba(255, 250, 243, 0.96), rgba(248, 240, 228, 0.92)),
+        var(--surface);
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .hero-shell::before,
+    .hero-shell::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(8px);
+      z-index: -1;
+    }
+
+    .hero-shell::before {
+      width: 340px;
+      height: 340px;
+      right: -90px;
+      top: -70px;
+      background: radial-gradient(circle, rgba(31, 70, 56, 0.18), transparent 70%);
+    }
+
+    .hero-shell::after {
+      width: 260px;
+      height: 260px;
+      left: -80px;
+      bottom: -80px;
+      background: radial-gradient(circle, rgba(161, 79, 46, 0.16), transparent 72%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(300px, 0.85fr);
+      gap: 24px;
+      padding: 48px;
+    }
+
+    .eyebrow {
+      margin: 18px 0 0;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(31, 70, 56, 0.72);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: "Source Han Serif SC", "Noto Serif SC", "Songti SC", serif;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      margin-top: 18px;
+      font-size: clamp(42px, 7vw, 82px);
+      max-width: 10ch;
+    }
+
+    .hero-subtitle {
+      margin: 20px 0 0;
+      max-width: 700px;
+      font-size: clamp(18px, 2.4vw, 26px);
+      color: #25322d;
+    }
+
+    .hero-copy {
+      margin: 18px 0 0;
+      max-width: 700px;
+      font-size: 17px;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 168px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--olive), var(--olive-2));
+      box-shadow: 0 14px 30px rgba(31, 70, 56, 0.22);
+    }
+
+    .button-secondary {
+      color: var(--olive);
+      border: 1px solid rgba(31, 70, 56, 0.18);
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .hero-notes {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .stat-card,
+    .glass-card,
+    .episode-card,
+    .audience-card,
+    .problem-card,
+    .contact-card,
+    .quote-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .stat-card {
+      padding: 22px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(249, 244, 237, 0.92));
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .stat-value {
+      margin-top: 10px;
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 800;
+      color: var(--olive);
+      line-height: 1;
+    }
+
+    .stat-desc {
+      margin-top: 10px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .mini-card {
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(31, 70, 56, 0.1);
+      background: rgba(255, 255, 255, 0.76);
+    }
+
+    .mini-card strong {
+      display: block;
+      color: var(--rust);
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .mini-card span {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .section-head {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .section-kicker {
+      color: var(--rust);
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .section-head h2 {
+      font-size: clamp(30px, 5vw, 50px);
+    }
+
+    .section-head p {
+      margin: 0;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .feature-grid,
+    .audience-grid,
+    .problem-grid,
+    .contact-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .feature-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .glass-card {
+      padding: 24px;
+    }
+
+    .feature-no {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba(31, 70, 56, 0.08);
+      color: var(--olive);
+      font-weight: 800;
+    }
+
+    .glass-card h3,
+    .audience-card h3,
+    .problem-card h3,
+    .contact-card h3 {
+      margin-top: 16px;
+      font-size: 24px;
+    }
+
+    .glass-card p,
+    .audience-card p,
+    .problem-card p,
+    .contact-card p,
+    .episode-meta,
+    .module-intro,
+    .quote-card p {
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    .quote-card {
+      padding: 28px;
+      margin-top: 18px;
+      background:
+        linear-gradient(135deg, rgba(31, 70, 56, 0.94), rgba(49, 95, 76, 0.96));
+      color: #f9f6ef;
+    }
+
+    .quote-card h3 {
+      font-size: clamp(24px, 4vw, 38px);
+    }
+
+    .quote-card p {
+      color: rgba(249, 246, 239, 0.86);
+      font-size: 17px;
+      max-width: 820px;
+    }
+
+    .module-block {
+      margin-top: 18px;
+      padding: 26px;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255, 253, 249, 0.96), rgba(249, 245, 238, 0.86));
+      box-shadow: var(--shadow);
+    }
+
+    .module-top {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 16px;
+      align-items: start;
+      margin-bottom: 18px;
+    }
+
+    .module-index {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(161, 79, 46, 0.12), rgba(197, 159, 82, 0.18));
+      color: var(--rust);
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    .module-top h3 {
+      font-size: clamp(26px, 4vw, 36px);
+    }
+
+    .episode-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .episode-card {
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.84);
+    }
+
+    .episode-tag {
+      display: inline-flex;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(31, 70, 56, 0.08);
+      color: var(--olive);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .episode-card h4 {
+      margin: 14px 0 0;
+      font-family: "Source Han Serif SC", "Noto Serif SC", "Songti SC", serif;
+      font-size: 22px;
+      line-height: 1.3;
+    }
+
+    .episode-meta strong {
+      color: var(--ink);
+    }
+
+    .audience-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .audience-card,
+    .problem-card,
+    .contact-card {
+      padding: 24px;
+    }
+
+    .audience-card ul,
+    .problem-card ul,
+    .contact-card ul {
+      margin: 16px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .problem-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .problem-card strong {
+      color: var(--olive);
+    }
+
+    .contact-wrap {
+      margin: 30px 0 42px;
+      padding: 28px;
+      border-radius: 34px;
+      border: 1px solid rgba(31, 70, 56, 0.14);
+      background:
+        linear-gradient(135deg, rgba(32, 51, 43, 0.98), rgba(25, 31, 28, 0.98));
+      color: #f8f4eb;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-grid {
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: stretch;
+    }
+
+    .contact-card {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.1);
+      box-shadow: none;
+    }
+
+    .contact-card p,
+    .contact-card li {
+      color: rgba(248, 244, 235, 0.82);
+    }
+
+    .contact-card .button-secondary {
+      margin-top: 18px;
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .contact-label {
+      margin-top: 18px;
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(248, 244, 235, 0.58);
+    }
+
+    .contact-value {
+      margin-top: 8px;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .qr-placeholder {
+      display: grid;
+      place-items: center;
+      min-height: 100%;
+      padding: 24px;
+      border-radius: 24px;
+      border: 1px dashed rgba(255, 255, 255, 0.24);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+      text-align: center;
+    }
+
+    .qr-box {
+      width: min(220px, 52vw);
+      aspect-ratio: 1;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.04));
+      display: grid;
+      place-items: center;
+      font-family: "Source Han Serif SC", "Noto Serif SC", "Songti SC", serif;
+      font-size: 24px;
+      margin: 0 auto 18px;
+    }
+
+    footer {
+      padding: 0 0 34px;
+      color: rgba(27, 29, 31, 0.56);
+      font-size: 14px;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .contact-grid,
+      .feature-grid,
+      .problem-grid,
+      .episode-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        padding: 34px;
+      }
+
+      .audience-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        padding-top: 16px;
+      }
+
+      .hero-grid,
+      .module-block,
+      .contact-wrap {
+        padding: 22px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .mini-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding-top: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="hero-shell">
+        <div class="hero-grid">
+          <section>
+            <span class="pill">课程宣传页 Demo｜可直接替换报名链接与二维码</span>
+            <p class="eyebrow">Equity Disputes / Course Landing Page</p>
+            <h1>股东纠纷十大高频场景</h1>
+            <p class="hero-subtitle">从确权到退出，讲透高校科技转化与中小企业股权咨询中的十大实务难题。</p>
+            <p class="hero-copy">
+              用十大高频纠纷，讲清股东关系是怎么一步步从合作走向失控的。
+              这不是泛泛讲公司法，而是一套围绕真实冲突、法院视角与证据准备展开的实务课程。
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#contact">预约试听 / 咨询课程</a>
+              <a class="button button-secondary" href="#curriculum">查看 10 个场景</a>
+            </div>
+          </section>
+
+          <aside class="hero-notes">
+            <div class="stat-card">
+              <div class="stat-label">课程结构</div>
+              <div class="stat-value">4 模块 / 10 集</div>
+              <div class="stat-desc">单集可独立传播，也可组成完整课程闭环，适合转化为产品页、短视频与咨询入口。</div>
+            </div>
+            <div class="mini-grid">
+              <div class="mini-card">
+                <strong>真实纠纷</strong>
+                <span>不是空讲法条，而是从高频案例切入。</span>
+              </div>
+              <div class="mini-card">
+                <strong>法院视角</strong>
+                <span>不只讲规则，更讲输赢卡在哪里。</span>
+              </div>
+              <div class="mini-card">
+                <strong>双场景</strong>
+                <span>高校科技转化版与中小企业股权版同步可讲。</span>
+              </div>
+              <div class="mini-card">
+                <strong>文件清单</strong>
+                <span>每一集都对应关键证据与行动清单。</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Why This Course</span>
+          <h2>不是一门“知道法条”的课，而是一门“看懂风险结构”的课</h2>
+          <p>很多股东纠纷，不是从翻脸那天才开始的，而是从最初那句“先干起来再说”、一份没签完的协议、一次没做的工商变更、一次没说清楚的成果归属开始。</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="glass-card">
+            <span class="feature-no">01</span>
+            <h3>真实冲突切入</h3>
+            <p>每一集都从一个真实高频场景进入，不绕概念，直接回答当事人最常问的那句话。</p>
+          </article>
+          <article class="glass-card">
+            <span class="feature-no">02</span>
+            <h3>双受众兼容</h3>
+            <p>同一套法律逻辑，同时翻译成高校科技转化版与中小企业股权版，便于不同场景复用。</p>
+          </article>
+          <article class="glass-card">
+            <span class="feature-no">03</span>
+            <h3>证据与文件导向</h3>
+            <p>不是只讲“懂了”，而是明确“要留什么证据、备什么文件、哪一步最容易输”。</p>
+          </article>
+          <article class="glass-card">
+            <span class="feature-no">04</span>
+            <h3>预防与止损并重</h3>
+            <p>从股东关系形成、失衡到失控的完整链条展开，既适合前期设计，也适合出事后补救。</p>
+          </article>
+        </div>
+
+        <div class="quote-card">
+          <h3>说好的股权，未必真是股权。签了代持协议，未必拿得回股权。</h3>
+          <p>当了股东，未必看得到账、分得到红；控制公司的人，也未必是持股最多的人。这门课要做的，就是把这些“看起来懂、真出事就乱”的问题，拆开讲透。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="curriculum">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Curriculum</span>
+          <h2>4 个模块，拆开 10 个高频股权纠纷场景</h2>
+          <p>每一集都围绕“咨询入口问题、核心法律问题、法院真正看什么、关键文件清单”展开，兼顾内容传播与课程转化。</p>
+        </div>
+
+        <section class="module-block">
+          <div class="module-top">
+            <div class="module-index">01</div>
+            <div>
+              <h3>模块一：股东资格是怎么形成的</h3>
+              <p class="module-intro">讲清股东身份的形成逻辑，以及“没登记”“没签完”时权利到底还能不能主张。</p>
+            </div>
+          </div>
+          <div class="episode-grid">
+            <article class="episode-card">
+              <span class="episode-tag">Episode 1</span>
+              <h4>口头承诺、微信聊天，算不算股权</h4>
+              <p class="episode-meta"><strong>咨询入口：</strong>当初微信里答应给我股，现在不认了，我还能要吗？</p>
+            </article>
+            <article class="episode-card">
+              <span class="episode-tag">Episode 2</span>
+              <h4>工商没变更，到底算不算股东</h4>
+              <p class="episode-meta"><strong>咨询入口：</strong>工商上没有我，但我一直按股东出钱出力，我到底算不算股东？</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="module-block">
+          <div class="module-top">
+            <div class="module-index">02</div>
+            <div>
+              <h3>模块二：股权为什么从一开始就不稳</h3>
+              <p class="module-intro">从技术入股、资源入股、代持安排到回购对赌，拆开那些最容易埋雷的初始结构。</p>
+            </div>
+          </div>
+          <div class="episode-grid">
+            <article class="episode-card">
+              <span class="episode-tag">Episode 3</span>
+              <h4>技术入股、资源入股，出资到底算不算到位</h4>
+              <p class="episode-meta"><strong>咨询入口：</strong>技术都写进章程了，为什么还会被说出资不实？</p>
+            </article>
+            <article class="episode-card">
+              <span class="episode-tag">Episode 4</span>
+              <h4>股权代持为什么最容易出大事</h4>
+              <p class="episode-meta"><strong>咨询入口：</strong>代持协议明明写得很清楚，为什么股权还是拿不回来？</p>
+            </article>
+            <article class="episode-card">
+              <span class="episode-tag">Episode 5</span>
+              <h4>公司回购、对赌回购，什么时候能要回钱</h4>
+              <p class="episode-meta"><strong>咨询入口：</strong>合同里明明约了回购，为什么真要回购时却拿不到钱？</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="module-block">
+          <div class="module-top">
+            <div class="module-index">03</div>
+            <div>
+              <h3>模块三：利益冲突升级后，会发生什么</h3>
+              <p class="module-intro">聚焦股权转让、查账分红、公章证照控制这些最容易演变成对抗的关键节点。</p>
+            </div>
+          </div>
+          <div class="episode-grid">
+            <article class="episode-card">
+              <span class="episode-tag">Episode 6</span>
+              <h4>股权转让时，最容易翻车的三个坑</h4>
+              <p class="episode-meta"><strong>咨询入口：</strong>股权转让协议都签了，为什么股权还是没过去？</p>
+            </article>
+            <article class="episode-card">
+              <span class="episode-tag">Episode 7</span>
+              <h4>股东有权看账吗，有权分红吗</h4>
+              <p class="episode-meta"><strong>咨询入口：</strong>我是股东，公司不给看账不给分红，我到底能怎么办？</p>
+            </article>
+            <article class="episode-card">
+              <span class="episode-tag">Episode 8</span>
+              <h4>营业执照、公章、证照被人拿走怎么办</h4>
+              <p class="episode-meta"><strong>咨询入口：</strong>对方把公章和营业执照扣住不还，怎么处理？</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="module-block">
+          <div class="module-top">
+            <div class="module-index">04</div>
+            <div>
+              <h3>模块四：控制权与责任，最后会怎么爆发</h3>
+              <p class="module-intro">当团队分裂、另起炉灶、公司被掏空时，控制权与个人责任问题会一起浮出水面。</p>
+            </div>
+          </div>
+          <div class="episode-grid">
+            <article class="episode-card">
+              <span class="episode-tag">Episode 9</span>
+              <h4>合伙人另起炉灶、带团队单干，怎么处理</h4>
+              <p class="episode-meta"><strong>咨询入口：</strong>合伙人把客户和团队带走另起公司，到底算不算违法？</p>
+            </article>
+            <article class="episode-card">
+              <span class="episode-tag">Episode 10</span>
+              <h4>股东把公司搞空了，债权人能不能追到个人</h4>
+              <p class="episode-meta"><strong>咨询入口：</strong>公司出问题后，债权人有没有可能越过公司直接找股东个人？</p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Audience</span>
+          <h2>这门课适合谁</h2>
+          <p>如果你的工作里既有合作、出资、控制权，也有成果归属、退出安排、查账分红、证据留存，这套课就会非常贴近实务。</p>
+        </div>
+
+        <div class="audience-grid">
+          <article class="audience-card">
+            <h3>核心受众</h3>
+            <p>适合最容易碰到股权安排与控制权问题的人群，特别是正在推进合作或已经出现关系紧张迹象的人。</p>
+            <ul>
+              <li>高校科研团队负责人、参与科技成果转化的教师与骨干</li>
+              <li>创始人、合伙人、小股东、拟入股的业务骨干</li>
+              <li>项目公司负责人、团队创业者、技术入股参与方</li>
+            </ul>
+          </article>
+          <article class="audience-card">
+            <h3>次级受众</h3>
+            <p>也适合需要把复杂纠纷问题翻译成产品、服务或咨询表达的人群。</p>
+            <ul>
+              <li>科技成果转化平台管理者</li>
+              <li>企业顾问、律师、股权咨询服务提供者</li>
+              <li>需要搭建课程、咨询产品、内容矩阵的知识服务团队</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">What You Gain</span>
+          <h2>你会带走的不只是知识点，而是一套判断框架</h2>
+          <p>课程重点不是背概念，而是帮学员迅速判断问题出在哪、证据缺什么、下一步该补什么。</p>
+        </div>
+
+        <div class="problem-grid">
+          <article class="problem-card">
+            <h3>确权判断</h3>
+            <p><strong>回答什么：</strong>口头约定、微信聊天、未完成登记时，股东资格如何证明、如何主张。</p>
+          </article>
+          <article class="problem-card">
+            <h3>结构诊断</h3>
+            <p><strong>回答什么：</strong>技术入股、代持、回购、转让安排为什么常常在关键时刻失效。</p>
+          </article>
+          <article class="problem-card">
+            <h3>控制权应对</h3>
+            <p><strong>回答什么：</strong>看账、分红、公章证照、团队流失、另起炉灶时，真正关键的杠杆在哪里。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-wrap">
+          <div class="section-head">
+            <span class="section-kicker" style="color: rgba(248, 244, 235, 0.62);">Call To Action</span>
+            <h2 style="color: #f8f4eb;">如果不想等问题真的闹上法庭，最好现在就把这套课看明白</h2>
+            <p style="color: rgba(248, 244, 235, 0.78);">这一区我保留成了可替换的转化位。你只需要把微信、二维码、报名链接或课程平台入口换成自己的，就能直接对外使用。</p>
+          </div>
+
+          <div class="contact-grid">
+            <article class="contact-card">
+              <h3>课程咨询 / 试听预约</h3>
+              <p>建议替换为你的真实报名入口，比如知识店铺链接、企业微信、公众号菜单、问卷表单或直播预约地址。</p>
+              <div class="contact-label">报名链接占位</div>
+              <div class="contact-value">https://your-course-link.example</div>
+              <div class="contact-label">咨询微信占位</div>
+              <div class="contact-value">YOUR-WECHAT-ID</div>
+              <a class="button button-secondary" href="https://your-course-link.example">替换成真实报名入口</a>
+            </article>
+
+            <article class="contact-card qr-placeholder">
+              <div>
+                <div class="qr-box">二维码位</div>
+                <p>把这里替换成你的课程海报、企业微信二维码、公众号二维码或知识店铺海报图。</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      页面文件：<strong>course-promo.html</strong>。当前为单页静态版，适合直接预览、继续改文案，或交给前端接入真实报名与二维码资源。
+    </div>
+  </footer>
+</body>
+</html>
