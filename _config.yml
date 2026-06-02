@@ -11,7 +11,7 @@ locale                   : "en-US"
 title                    : "Zhou Ke / 周科"
 title_separator          : "-"
 name                     : &name "Zhou Ke"
-description              : &description "personal description"
+description              : &description "Associate Professor at Hunan University, focusing on quantitative investment, graph neural networks, and AI applications in management."
 url                      : https://hustzhke.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "hustzhke/hustzhke.github.io"
@@ -23,7 +23,7 @@ author:
   # Biographic information
   avatar           : "images/profile.png"
   name             : "Zhou Ke/ 周科"
-  pronouns         : # example: "she/her"  
+  pronouns         :
   bio              : "Associate Professor, Department of Management Science, Business School, Hunan University"
   location         : "Changsha, Hunan, China"
   employer         : "Hunan University"
@@ -31,9 +31,9 @@ author:
   email            : "hustzhke@gmail.com" 
 
   # Academic websites
-  arxiv            : # URL - Update with the correct link to your profile
+  arxiv            :
   googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
-  orcid            : "http://orcid.org/yourorcidurl"
+  orcid            :
   researchgate     : # URL
   scopus           : # URL
 

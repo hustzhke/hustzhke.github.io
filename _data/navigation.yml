@@ -5,24 +5,20 @@
 # prevent it from being included in the site.
 
 main:
-
-
-  
+  - title: "关于 About"
+    url: /
 
   - title: "教学 Teaching"
-    url: /teaching/    
-    
+    url: /teaching/
 
-        
-  - title: "播客 Blog Posts"
-    url: /year-archive/ 
-
+  - title: "博客 Blog"
+    url: /year-archive/
 
   - title: "论文发表 Publications"
     url: /publications/
-    
+
   - title: "简历 CV"
     url: /cv/
-    
-  - title: "网站指南 Guide"
-    url: /markdown/
+
+  - title: "AI 工具"
+    url: /ai-tools/
