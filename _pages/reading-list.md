@@ -45,6 +45,7 @@ author_profile: false
 | 如何理解深度学习 | [《深度学习》](/books/deep-learning/) | 理解神经网络、优化方法和深度模型 |
 | 如何理解机器学习系统 | *Designing Machine Learning Systems* | 理解数据、训练、部署和监控 |
 | 如何理解大语言模型 | *Build a Large Language Model (From Scratch)*（Sebastian Raschka） | 从零用 PyTorch 实现 GPT 类模型，代码全开源 |
+| 如何理解强化学习 | *Reinforcement Learning: An Introduction (2/e)*（Sutton & Barto） | RL 领域圣经，覆盖 MDP、TD 学习、策略梯度等核心理论 |
 
 ---
 
