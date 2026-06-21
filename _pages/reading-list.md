@@ -28,6 +28,9 @@ author_profile: false
 | 如何理解金融机器学习 | *Advances in Financial Machine Learning* | 学习金融场景下的机器学习方法 |
 | 如何入门算法交易 | *Algorithmic Trading* | 理解交易策略设计、回测和执行 |
 | 如何理解量化基金 | *Inside the Black Box* | 了解量化基金的研究、交易和风控流程 |
+| 如何通过量化面试 | 🟢 *A Practical Guide to Quantitative Finance Interviews*（绿皮书，Xinfeng Zhou） | 概率、脑筋急转弯、统计、线代、期权基础 |
+| 如何通过量化面试 | 🔴 *Heard on the Street*（红皮书，Timothy Crack） | 华尔街量化面试经典题库 |
+| 如何通过量化面试 | 🟡 *Frequently Asked Questions in Quantitative Finance*（黄皮书，Paul Wilmott） | Quant finance 常见概念问答 |
 
 ---
 
