@@ -38,15 +38,15 @@ author_profile: false
 
 | 主题 | 推荐书目 | 核心内容 |
 |------|----------|----------|
-| 如何学习 Python 数据分析 | *Python for Data Analysis* | 掌握 Pandas、NumPy 和数据清洗方法 |
+| 如何学习 Python 数据分析 | [*Python for Data Analysis*](https://wesmckinney.com/book/)（Wes McKinney） | 掌握 Pandas、NumPy 和数据清洗方法，作者官方免费在线版 |
 | 如何建立机器学习基础 | 《统计学习方法》 | 理解模型、损失函数、正则化和评估方法 |
 | 如何系统学习机器学习 | 《机器学习》 | 建立机器学习算法的完整知识框架 |
 | 如何动手实践机器学习 | *Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow* | 从代码实践理解机器学习 |
 | 如何动手实践深度学习 | [《动手学深度学习》](https://zh.d2l.ai/)（李沐 等） | PyTorch 代码驱动，从线性回归到 Transformer 全覆盖 |
 | 如何理解深度学习 | [《深度学习》](/books/deep-learning/) | 理解神经网络、优化方法和深度模型 |
 | 如何理解机器学习系统 | *Designing Machine Learning Systems* | 理解数据、训练、部署和监控 |
-| 如何理解大语言模型 | *Build a Large Language Model (From Scratch)*（Sebastian Raschka） | 从零用 PyTorch 实现 GPT 类模型，代码全开源 |
-| 如何理解强化学习 | *Reinforcement Learning: An Introduction (2/e)*（Sutton & Barto） | RL 领域圣经，覆盖 MDP、TD 学习、策略梯度等核心理论 |
+| 如何理解大语言模型 | [*Build a Large Language Model (From Scratch)*](https://github.com/rasbt/LLMs-from-scratch)（Sebastian Raschka） | 从零用 PyTorch 实现 GPT 类模型，代码全开源 |
+| 如何理解强化学习 | [*Reinforcement Learning: An Introduction (2/e)*](http://incompleteideas.net/book/the-book-2nd.html)（Sutton & Barto） | RL 领域圣经，作者官方免费完整版，覆盖 MDP、TD 学习、策略梯度等 |
 
 ---
 
