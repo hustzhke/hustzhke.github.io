@@ -28,9 +28,9 @@ author_profile: false
 | 如何理解金融机器学习 | *Advances in Financial Machine Learning* | 学习金融场景下的机器学习方法 |
 | 如何入门算法交易 | *Algorithmic Trading* | 理解交易策略设计、回测和执行 |
 | 如何理解量化基金 | *Inside the Black Box* | 了解量化基金的研究、交易和风控流程 |
-| 如何通过量化面试 | 🟢 *A Practical Guide to Quantitative Finance Interviews*（绿皮书，Xinfeng Zhou） | 概率、脑筋急转弯、统计、线代、期权基础 |
-| 如何通过量化面试 | 🔴 *Heard on the Street*（红皮书，Timothy Crack） | 华尔街量化面试经典题库 |
-| 如何通过量化面试 | 🟡 *Frequently Asked Questions in Quantitative Finance*（黄皮书，Paul Wilmott） | Quant finance 常见概念问答 |
+| 量化面试：数学与概率基础 | 🟢 *A Practical Guide to Quantitative Finance Interviews*（绿皮书，Xinfeng Zhou） | 概率、脑筋急转弯、统计、线代、期权基础 |
+| 量化面试：华尔街真题训练 | 🔴 *Heard on the Street*（红皮书，Timothy Crack） | 华尔街量化面试经典题库 |
+| 量化面试：Quant 概念与问答 | 🟡 *Frequently Asked Questions in Quantitative Finance*（黄皮书，Paul Wilmott） | Quant finance 常见概念问答 |
 
 ---
 
@@ -76,8 +76,9 @@ author_profile: false
 
 ## 阅读建议
 
-1. **从基础到进阶**：建议先读《投资学》建立基础框架，再进入量化或机器学习方向。
-2. **理论结合实践**：每读完一本书，尝试用 Python 复现一个相关案例（如《金融时间序列分析》+ 真实股票数据）。
-3. **跨学科连接**：金融机器学习不是简单的算法套用，需要理解金融数据的独特性质（低信噪比、非平稳、市场效率）。
+1. **从基础到进阶**：建议先读《投资学》《管理学》建立金融与管理的基础框架，再按兴趣深入量化、AI 或创业方向。
+2. **理论结合实践**：每读完一本书，尝试用 Python 复现案例（如《金融时间序列分析》+ 真实数据；*Build a Large Language Model* + PyTorch 实现）。
+3. **跨学科连接**：金融 ML 不是简单算法套用，需理解金融数据的独特性质（低信噪比、非平稳）；管理决策需结合行为心理学（《影响力》《思考，快与慢》）。
+4. **面试准备**：量化方向建议绿皮书 → 红皮书 → 黄皮书顺序刷题，配合《主动投资组合管理》的理论框架。
 
 > 对以上方向感兴趣的学生，欢迎与我联系讨论阅读计划和科研方向。
