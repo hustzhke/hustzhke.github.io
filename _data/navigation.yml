@@ -22,3 +22,6 @@ main:
 
   - title: "AI 工具"
     url: /ai-tools/
+
+  - title: "推荐书单"
+    url: /reading-list/
