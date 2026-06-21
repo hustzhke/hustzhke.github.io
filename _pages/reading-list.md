@@ -39,7 +39,7 @@ author_profile: false
 | 如何建立机器学习基础 | 《统计学习方法》 | 理解模型、损失函数、正则化和评估方法 |
 | 如何系统学习机器学习 | 《机器学习》 | 建立机器学习算法的完整知识框架 |
 | 如何动手实践机器学习 | *Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow* | 从代码实践理解机器学习 |
-| 如何理解深度学习 | 《深度学习》 | 理解神经网络、优化方法和深度模型 |
+| 如何理解深度学习 | [《深度学习》](/books/deep-learning/) | 理解神经网络、优化方法和深度模型 |
 | 如何理解机器学习系统 | *Designing Machine Learning Systems* | 理解数据、训练、部署和监控 |
 
 ---
