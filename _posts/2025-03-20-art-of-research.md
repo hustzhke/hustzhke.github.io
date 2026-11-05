@@ -1,11 +1,9 @@
 ---
 title: '研究的艺术'
 date: 2025-03-20
-permalink: /posts/2012/08/blog-post-4/
+permalink: /posts/2025/03/20/art-of-research/
 tags:
-  - cool posts
-  - category1
-  - category2
+  - 研究方法
 ---
 
 研究流程指南

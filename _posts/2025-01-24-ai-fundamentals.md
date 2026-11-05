@@ -1,11 +1,9 @@
 ---
 title: '入门教育（AI Fundamentals）'
 date: 2025-01-24
-permalink: /posts/2012/08/blog-post-4/
+permalink: /posts/2025/01/24/ai-fundamentals/
 tags:
-  - cool posts
-  - category1
-  - category2
+  - AI 教育
 ---
 高中大学AI入门知识
 

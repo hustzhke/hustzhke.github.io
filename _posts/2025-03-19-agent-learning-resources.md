@@ -1,11 +1,9 @@
 ---
 title: 'Agent学习参考资料'
 date: 2025-03-19
-permalink: /posts/2012/08/blog-post-4/
+permalink: /posts/2025/03/19/agent-learning-resources/
 tags:
-  - cool posts
-  - category1
-  - category2
+  - AI Agent
 ---
 从入门到项目实战
 

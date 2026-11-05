@@ -1,11 +1,10 @@
 ---
 title: '图神经网络 Graph Neural Networks(GNN)'
 date: 2025-01-02
-permalink: /posts/2013/08/blog-post-2/
+permalink: /posts/2025/01/02/gnn-papers/
 tags:
-  - cool posts
-  - category1
-  - category2
+  - 图神经网络
+  - 论文清单
 ---
 图神经网络的重要文章和人物
 

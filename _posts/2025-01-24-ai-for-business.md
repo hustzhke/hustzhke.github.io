@@ -1,16 +1,11 @@
 ---
 title: 'AI驱动的商业范式变革（AI For Business）'
 date: 2025-01-24
-permalink: /posts/2012/08/blog-post-4/
+permalink: /posts/2025/01/24/ai-for-business/
 tags:
-  - cool posts
-  - category1
-  - category2
+  - AI 教育
+  - AI For Business
 ---
-此部分重复 不记得原来是什么 可能删除错误
-
-
-
 课程目标定位
 ======
 需聚焦AI驱动的商业范式变革，培养学员在战略决策、组织重构与价值创造中的AI思维。

@@ -1,11 +1,9 @@
 ---
 title: '如何寻找资料'
 date: 2025-03-20
-permalink: /posts/2012/08/blog-post-4/
+permalink: /posts/2025/03/20/how-to-find-references/
 tags:
-  - cool posts
-  - category1
-  - category2
+  - 研究方法
 ---
 寻找研究资料的步骤
 

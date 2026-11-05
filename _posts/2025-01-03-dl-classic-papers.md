@@ -1,11 +1,10 @@
 ---
 title: '著名深度学习论文'
 date: 2025-01-03
-permalink: /posts/2014/08/blog-post-3/
+permalink: /posts/2025/01/03/dl-classic-papers/
 tags:
-  - cool posts
-  - category1
-  - category2
+  - 深度学习
+  - 论文清单
 ---
 深度学习论文列表，大概50多篇，每一篇都对于深度学习领域的发展起到了关键性的推动作用
 

@@ -1,11 +1,9 @@
 ---
 title: 'AI Agent 学习小组（Agent For Business）'
 date: 2025-03-19
-permalink: /posts/2012/08/blog-post-4/
+permalink: /posts/2025/03/19/agent-study-group/
 tags:
-  - cool posts
-  - category1
-  - category2
+  - AI Agent
 ---
 AI应用 头脑风暴文档
 

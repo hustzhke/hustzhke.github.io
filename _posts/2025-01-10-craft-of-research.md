@@ -1,11 +1,9 @@
 ---
 title: '研究的思路“The Craft of Research” by Booth, Colomb, & Williams'
-date: 2015-08-14
-permalink: /posts/2012/08/blog-post-4/
+date: 2025-01-10
+permalink: /posts/2025/01/10/craft-of-research/
 tags:
-  - cool posts
-  - category1
-  - category2
+  - 研究方法
 ---
 如何做研究
 
