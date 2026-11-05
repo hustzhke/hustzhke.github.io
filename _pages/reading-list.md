@@ -39,7 +39,7 @@ author_profile: false
 | # | 书名 | 作者 | 一句话 |
 |---|------|------|--------|
 | 1 | 《投资学》 | 滋维·博迪 等 | 理解资本市场与资产配置的基础框架 |
-| 2 | 《管理学（第 13 版）》 | 斯蒂芬·罗宾斯 | 计划、组织、领导、控制——管理学的标准地图 |
+| 2 | 《管理学（第 15 版）》 | 斯蒂芬·罗宾斯 | 计划、组织、领导、控制——管理学的标准地图 |
 | 3 | 《经济学原理》 | N·格里高利·曼昆 | 价格、激励、市场——经济学的底层直觉 |
 | 4 | *Python for Data Analysis* | [Wes McKinney](https://wesmckinney.com/book/) | pandas 之父写的入门书，数据分析工具首选 |
 
@@ -144,10 +144,11 @@ author_profile: false
 | *Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow* | Aurélien Géron | 从代码实践理解机器学习 |
 | [《动手学深度学习》](https://zh.d2l.ai/) | 李沐 等 | PyTorch 代码驱动，从线性回归到 Transformer 全覆盖 |
 | *Designing Machine Learning Systems* | Chip Huyen | 数据、训练、部署和监控 |
+| [*AI Engineering*](https://github.com/chiphuyen/aie-book) | Chip Huyen | LLM 时代的工程化：评估、RAG、微调与部署，从原型到生产 |
 | [*Build a Large Language Model (From Scratch)*](https://github.com/rasbt/LLMs-from-scratch) | Sebastian Raschka | 从零用 PyTorch 实现 GPT 类模型 |
 | [*Reinforcement Learning (2/e)*](http://incompleteideas.net/book/the-book-2nd.html) | Sutton & Barto | RL 领域圣经，MDP、TD 学习、策略梯度 |
 
-> 建议顺序：*Hands-On ML* → 《动手学深度学习》 → *LLM From Scratch*（按需） → *RL*（按需） → *Designing ML Systems*（工程化收尾）
+> 建议顺序：*Hands-On ML* → 《动手学深度学习》 → *LLM From Scratch*（按需） → *RL*（按需） → *Designing ML Systems* + *AI Engineering*（工程化收尾）
 
 ### 5.4 创业与组织管理
 
@@ -177,5 +178,6 @@ author_profile: false
 
 ## 7. 更新说明
 
+- **2026-11**：《管理学》更新至第 15 版；AI 路径新增 *AI Engineering*（Chip Huyen, 2025）
 - **2026-06**：重构书单结构，区分核心阅读与方向进阶；新增 *LLM From Scratch*、*Reinforcement Learning*、《动手学深度学习》；补齐所有书目作者信息
 - **2025-06**：初始书单整理
