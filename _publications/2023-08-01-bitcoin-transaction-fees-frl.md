@@ -7,5 +7,7 @@ excerpt: 'This paper examines the relationship between Bitcoin transaction fees 
 date: 2023-08-01
 venue: 'Finance Research Letters'
 paperurl: 'https://doi.org/10.1016/j.frl.2023.104347'
-citation: 'Li, Z., Li, J., & Zhou, K. (2023). &quot;Bitcoin transaction fees and the decentralization of Bitcoin mining pools.&quot; <i>Finance Research Letters</i>, 58(1), 104347.'
+citation: 'Li, Z., Li, J., & Zhou, K. (2023). &quot;Bitcoin transaction fees and the decentralization of Bitcoin mining pools.&quot; <i>Finance Research Letters</i>, 58, 104347.'
 ---
+
+> AI生成

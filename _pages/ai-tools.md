@@ -18,6 +18,9 @@ author_profile: false
 - **[Perplexity](https://www.perplexity.ai/)** — AI 搜索引擎，直接回答问题并给出信息来源。
 - **[Google Gemini](https://gemini.google.com/)** — Google 多模态 AI，深度集成 Google 生态。
 - **[Grok](https://x.ai/grok)** — xAI 开发，擅长外部视角分析与实时信息整合。
+- **[豆包](https://www.doubao.com/)** — 字节跳动出品，国内用户量最大的 AI 助手，中文日常场景体验佳。
+- **[通义千问](https://tongyi.aliyun.com/)** — 阿里巴巴出品，Qwen 系列开源模型生态完善。
+- **[智谱清言](https://chatglm.cn/)** — 智谱 AI 出品，GLM 系列模型，企业与高校应用落地广泛。
 
 ## 科研与学术工具
 
@@ -35,7 +38,8 @@ author_profile: false
 - **[Stanford CS229](https://cs229.stanford.edu/)** — 吴恩达经典机器学习课程。
 - **[Stanford CS224N](https://web.stanford.edu/class/cs224n/)** — NLP with Deep Learning，Transformer 时代最经典的 NLP 课程。
 - **[Stanford CS231N](https://cs231n.stanford.edu/)** — Convolutional Neural Networks for Visual Recognition。
-- **[CMU 11-711 ANLP](https://phontron.com/class/anlp2024/lectures/)** — 卡内基梅隆大学高级自然语言处理。
+- **[CMU 11-711 ANLP](https://phontron.com/class/anlp2025/)** — 卡内基梅隆大学高级自然语言处理。
+- **[Stanford CS336](https://stanford-cs336.github.io/)** — Language Modeling from Scratch，从零构建完整大语言模型，覆盖数据、架构、训练系统到对齐，含作业与全程录播。
 - **[Stanford AI Courses](https://ai.stanford.edu/courses/)** — 斯坦福大学 60+ 门 AI 课程合集。
 - **[上海交大 CS2916](https://gair-nlp.github.io/cs2916/docs/intro)** — 大语言模型系统课程。
 
@@ -51,13 +55,15 @@ author_profile: false
 ## AI 编程工具
 
 - **[Cursor](https://www.cursor.com/)** — AI 驱动的代码编辑器，VSCode 兼容。
-- **[Claude Code](https://claude.ai/code)** — Anthropic 终端 AI 编程助手。
+- **[Claude Code](https://claude.com/claude-code)** — Anthropic 的 AI 编程智能体，终端/IDE/网页多端可用，可自主完成长时间重构任务。
 - **[GitHub Copilot](https://github.com/features/copilot)** — GitHub / OpenAI 出品，IDE 内 AI 代码补全。
-- **[Windsurf](https://codeium.com/windsurf)** — Codeium 出品，AI 原生 IDE。
+- **[Windsurf](https://windsurf.com/)** — AI 原生 IDE（原 Codeium）。
 - **[Bolt.new](https://bolt.new/)** — 全栈 Web 应用开发与部署平台。
 - **[v0](https://v0.dev/)** — Vercel 出品，用自然语言生成前端 UI 界面。
-- **[MarsCode](https://www.marscode.com/)** — 字节跳动 AI 编程工具（国内版）。
+- **[Trae](https://www.trae.cn/)** — 字节跳动 AI 原生开发工具（原 MarsCode，国内版）。
 
 ---
 
-*最后更新：2026 年 6 月*
+*最后更新：2026 年 11 月*
+
+> AI生成
